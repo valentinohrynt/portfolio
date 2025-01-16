@@ -42,7 +42,7 @@ const Portfolio = () => {
               >
                 {darkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
-              {['Home', 'Projects', 'Skills', 'Contact'].map((item, index) => (
+              {['Home', 'Projects', 'Skills'].map((item, index) => (
                 <a
                   key={index}
                   href={`#${item.toLowerCase()}`}
@@ -64,7 +64,7 @@ const Portfolio = () => {
           {isMenuOpen && (
             <div className="py-4 md:hidden">
               <div className="flex flex-col space-y-3">
-                {['Home', 'Projects', 'Skills', 'Contact'].map((item, index) => (
+                {['Home', 'Projects', 'Skills'].map((item, index) => (
                   <a
                     key={index}
                     href={`#${item.toLowerCase()}`}
