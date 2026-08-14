@@ -7,12 +7,13 @@ const experience = [
     period: 'Sep 2025 — Oct 2025',
     location: 'Jember, East Java',
     bullets: [
-      'Designed relational MySQL databases for internal systems including Tracer and Vantage.',
-      'Developed backend functionality with PHP and Laravel 12 for operational and customer-related workflows.',
-      'Worked on web interfaces and integration as part of the end-to-end application development process.',
-      'Tracer supported operational asset management, while Vantage covered customer relationship data, ODP mapping, and IndiBiz potential-customer records.',
+      'Designed MySQL databases for TRACER, an internal system for managing operational assets and equipment in the Jember area.',
+      'Built TRACER backend and REST API features with PHP and Laravel 12, including data management, authentication, access control, and application-service integration.',
+      'Worked on the TRACER web interface using React, Vite, and Tailwind CSS as the project stack, and connected it to the backend APIs.',
+      'Designed the database and Laravel backend for VANTAGE, covering customer relationship data, ODP mapping, and potential IndiBiz customer records.',
+      'Integrated a Python/Flask machine-learning service for churn prediction, usage forecasting, customer segmentation, and customer lifetime value analysis.',
     ],
-    stack: ['PHP', 'Laravel 12', 'MySQL', 'Web Application Development', 'React/Vite (project stack)'],
+    stack: ['PHP', 'Laravel 12', 'MySQL', 'REST API', 'Python / Flask integration', 'React / Vite project stack'],
   },
 ];
 
@@ -28,10 +29,20 @@ const programs = [
     name: 'Indosat Ooredoo Hutchison Digital Camp — Multi-Platform App Developer',
     organization: 'IDCamp',
     period: 'Sep 2024 — Jun 2025',
-    description: 'Completed a multi-platform application development learning path focused on Flutter and Dart.',
+    description: 'Completed a multi-platform application development learning path focused on Flutter and Dart through intermediate and expert-level coursework.',
     tags: ['Flutter', 'Dart', 'Multi-Platform Development'],
   },
 ];
+
+const organization = {
+  role: 'Public Relations Staff',
+  organization: 'Serigala Sistem Informasi — HIMASIF, University of Jember',
+  period: 'Oct 2022 — Aug 2023',
+  bullets: [
+    'Contacted lecturers and other academic speakers for IT competition training and seminar activities, then coordinated schedules and availability with the team.',
+    'Prepared rough content wireframes for Instagram posts, coordinated with the design team, scheduled publication, and shared event information with participants.',
+  ],
+};
 
 const Experience = () => {
   return (
@@ -39,7 +50,7 @@ const Experience = () => {
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <div className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-medium tracking-wide text-sky-300/90">Experience</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">Work and training</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">Work, training, and organization</h2>
         </div>
 
         {experience.map((item) => (
@@ -89,6 +100,21 @@ const Experience = () => {
             ))}
           </div>
         </div>
+
+        <article className="glass-panel-soft mt-5 rounded-2xl p-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-slate-200">{organization.role}</h3>
+              <p className="mt-1 text-sm text-slate-500">{organization.organization}</p>
+            </div>
+            <p className="text-sm font-medium text-slate-600">{organization.period}</p>
+          </div>
+          <ul className="mt-4 space-y-2 pl-5 text-sm leading-6 text-slate-500">
+            {organization.bullets.map((bullet) => (
+              <li key={bullet} className="list-disc pl-1 marker:text-slate-700">{bullet}</li>
+            ))}
+          </ul>
+        </article>
       </div>
     </section>
   );
