@@ -6,29 +6,26 @@ const groups = [
     skills: ['PHP', 'Laravel', 'JavaScript', 'Node.js', 'Express.js', 'REST API', 'HTML', 'CSS', 'Bootstrap'],
   },
   {
-    title: 'Database',
-    skills: ['MySQL', 'SQL', 'Relational Database Design'],
+    title: 'Database & Integration',
+    skills: ['MySQL', 'SQL', 'Relational Database Design', 'Authentication', 'Third-party API Integration', 'Payment Flow Integration'],
   },
   {
     title: 'Mobile',
-    skills: ['Kotlin', 'Android', 'Flutter', 'Dart'],
+    skills: ['Kotlin', 'Android', 'Jetpack Compose', 'Flutter', 'Dart', 'Firebase'],
   },
   {
     title: 'Tools & Workflow',
-    skills: ['Git', 'GitHub', 'Visual Studio Code', 'Android Studio', 'API Testing', 'Debugging'],
+    skills: ['Git', 'GitHub', 'Figma', 'Wireframing', 'API Testing', 'Debugging', 'Deployment', 'Application Maintenance'],
   },
 ];
 
-const additional = ['Python', 'Flask', 'Pandas', 'Basic Data Analysis'];
-const projectExposure = ['React', 'Next.js', 'TypeScript', 'Hono', 'Prisma', 'Drizzle', 'PostgreSQL', 'Cloudflare Workers', 'Cloudflare R2', 'Auth.js'];
+const additional = ['Python', 'Flask', 'Pandas', 'Basic Data Analysis', 'Machine-learning service integration'];
+const projectExposure = ['React', 'Next.js', 'TypeScript', 'Vite', 'Hono', 'Prisma', 'Drizzle', 'PostgreSQL', 'Cloudflare Workers', 'Cloudflare R2', 'Auth.js'];
 
 const SkillTags = ({ items, muted = false }) => (
   <div className="mt-5 flex flex-wrap gap-2">
     {items.map((skill) => (
-      <span
-        key={skill}
-        className={`rounded-lg border border-white/5 bg-white/[0.035] px-3 py-1.5 text-sm font-medium ${muted ? 'text-slate-500' : 'text-slate-300'}`}
-      >
+      <span key={skill} className={`rounded-lg border border-white/5 bg-white/[0.035] px-3 py-1.5 text-sm font-medium transition hover:border-white/10 hover:text-slate-200 ${muted ? 'text-slate-500' : 'text-slate-300'}`}>
         {skill}
       </span>
     ))}
@@ -41,9 +38,9 @@ const Skills = () => {
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <div className="mb-10 max-w-3xl">
           <p className="mb-3 text-sm font-medium tracking-wide text-sky-300/90">Skills</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">Technologies I use most often</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">Technologies and day-to-day work</h2>
           <p className="mt-4 text-base leading-7 text-slate-400 sm:text-lg">
-            Core skills are listed separately from tools I have mainly encountered while working on newer projects.
+            I separate tools I can work with directly from technologies I have mostly encountered through newer, AI-assisted projects.
           </p>
         </div>
 
@@ -65,9 +62,7 @@ const Skills = () => {
 
           <div className="glass-panel-soft rounded-2xl p-6">
             <h3 className="text-lg font-semibold text-slate-200">Project exposure</h3>
-            <p className="mt-1 text-sm leading-6 text-slate-500">
-              Used in projects where I relied heavily on AI coding assistance; listed here as exposure rather than core skills.
-            </p>
+            <p className="mt-1 text-sm leading-6 text-slate-500">These appear in projects where I relied heavily on AI coding assistance, so I do not list them as core expertise.</p>
             <SkillTags items={projectExposure} muted />
           </div>
         </div>
