@@ -101,7 +101,7 @@ const Projects = () => {
     <section id="work" className="border-b border-white/5 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <div className="mb-10 max-w-3xl">
-          <p className="mb-3 text-sm font-medium tracking-wide text-sky-300/90">Projects</p>
+          <p className="mb-3 text-sm font-medium tracking-wide text-sky-300/85">Projects</p>
           <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">Selected projects</h2>
           <p className="mt-4 text-base leading-7 text-slate-400 sm:text-lg">
             A few projects that show the kind of problems and products I have worked on.
@@ -110,9 +110,9 @@ const Projects = () => {
 
         <div className="grid gap-5 md:grid-cols-2">
           {projects.map((project) => (
-            <article key={project.title} className="glass-panel-soft flex h-full flex-col rounded-2xl p-6 transition duration-200 hover:border-white/15 hover:bg-white/[0.05]">
+            <article key={project.title} className="glass-panel-soft flex h-full flex-col rounded-2xl p-6 transition duration-200 hover:border-white/10 hover:bg-white/[0.035]">
               <div className="mb-4">
-                <p className="text-sm font-medium text-sky-300/80">{project.category}</p>
+                <p className="text-sm font-medium text-sky-300/75">{project.category}</p>
                 <h3 className="mt-1 text-2xl font-semibold tracking-tight text-slate-100">{project.title}</h3>
               </div>
 
@@ -120,10 +120,10 @@ const Projects = () => {
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {project.stack.slice(0, 6).map((item) => (
-                  <span key={item} className="rounded-lg border border-white/5 bg-white/[0.035] px-2.5 py-1 text-xs font-medium text-slate-400">{item}</span>
+                  <span key={item} className="rounded-lg border border-white/5 bg-white/[0.025] px-2.5 py-1 text-xs font-medium text-slate-400">{item}</span>
                 ))}
                 {project.stack.length > 6 && (
-                  <span className="rounded-lg border border-white/5 bg-white/[0.035] px-2.5 py-1 text-xs font-medium text-slate-500">+{project.stack.length - 6}</span>
+                  <span className="rounded-lg border border-white/5 bg-white/[0.025] px-2.5 py-1 text-xs font-medium text-slate-500">+{project.stack.length - 6}</span>
                 )}
               </div>
 
@@ -161,27 +161,27 @@ const Projects = () => {
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
             {otherProjects.map((project) => (
-              <span key={project} className="rounded-full border border-white/5 bg-white/[0.025] px-3 py-1.5 text-xs font-medium text-slate-500">{project}</span>
+              <span key={project} className="rounded-full border border-white/5 bg-white/[0.02] px-3 py-1.5 text-xs font-medium text-slate-500">{project}</span>
             ))}
           </div>
         </div>
       </div>
 
       {selectedProject && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#05080c]/80 p-4 backdrop-blur-md" role="dialog" aria-modal="true" aria-label={`${selectedProject.title} project details`}>
-          <div className="glass-panel max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-[#101820]/90 p-6 shadow-2xl sm:p-8">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md" role="dialog" aria-modal="true" aria-label={`${selectedProject.title} project details`}>
+          <div className="glass-panel max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-black/95 p-6 shadow-2xl sm:p-8">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm font-medium text-sky-300/80">{selectedProject.category}</p>
+                <p className="text-sm font-medium text-sky-300/75">{selectedProject.category}</p>
                 <h3 className="mt-1 text-3xl font-semibold tracking-tight text-slate-100">{selectedProject.title}</h3>
               </div>
-              <button type="button" onClick={() => setSelectedProject(null)} className="rounded-lg border border-white/5 bg-white/[0.035] p-2 text-slate-500 hover:text-slate-200" aria-label="Close project details">
+              <button type="button" onClick={() => setSelectedProject(null)} className="rounded-lg border border-white/5 bg-white/[0.025] p-2 text-slate-500 hover:text-slate-200" aria-label="Close project details">
                 <X size={20} />
               </button>
             </div>
 
             {selectedProject.aiAssisted && (
-              <div className="mt-6 rounded-xl border border-white/5 bg-white/[0.03] p-4">
+              <div className="mt-6 rounded-xl border border-white/5 bg-white/[0.02] p-4">
                 <p className="text-sm leading-6 text-slate-400">
                   <span className="font-semibold text-slate-300">Development note:</span> this project was built with substantial AI coding assistance. The technologies below describe the project stack, not necessarily my level of expertise in each framework.
                 </p>
@@ -206,13 +206,13 @@ const Projects = () => {
               <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-600">Technology used</h4>
               <div className="mt-3 flex flex-wrap gap-2">
                 {selectedProject.stack.map((item) => (
-                  <span key={item} className="rounded-lg border border-white/5 bg-white/[0.035] px-2.5 py-1.5 text-xs font-medium text-slate-400">{item}</span>
+                  <span key={item} className="rounded-lg border border-white/5 bg-white/[0.025] px-2.5 py-1.5 text-xs font-medium text-slate-400">{item}</span>
                 ))}
               </div>
             </div>
 
             {selectedProject.github && (
-              <a href={selectedProject.github} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/10 px-4 py-2.5 text-sm font-semibold text-slate-100 hover:bg-white/15">
+              <a href={selectedProject.github} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.07] px-4 py-2.5 text-sm font-semibold text-slate-100 hover:bg-white/[0.1]">
                 <Github size={16} /> Open repository
               </a>
             )}
