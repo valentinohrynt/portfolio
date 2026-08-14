@@ -19,7 +19,7 @@ const certifications = [
   {
     title: 'Full-Stack JavaScript & Backend Development',
     issuer: 'CODEPOLITAN',
-    note: '12 course certifications covering Node.js, Express.js, REST API, JavaScript, HTML/CSS, and Bootstrap',
+    note: '12 course certifications covering Node.js, Express.js, REST APIs, JavaScript, HTML/CSS, and Bootstrap',
   },
   {
     title: 'Data, AI & Programming Foundations',
@@ -48,11 +48,24 @@ const Highlights = () => {
     <section id="credentials" className="border-b border-white/5 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <div className="mb-10 max-w-3xl">
-          <p className="mb-3 text-sm font-medium tracking-wide text-sky-300/90">Credentials</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">Certifications & achievements</h2>
-          <p className="mt-4 text-base leading-7 text-slate-400 sm:text-lg">
-            Selected credentials are shown here. The full certification list is available on LinkedIn.
-          </p>
+          <p className="mb-3 text-sm font-medium tracking-wide text-sky-300/90">Education & credentials</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">Education, certifications, and achievements</h2>
+        </div>
+
+        <div className="mb-6 grid gap-5 md:grid-cols-2">
+          <div className="glass-panel-soft rounded-2xl p-6">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">Education</p>
+            <h3 className="mt-3 text-lg font-semibold text-slate-200">Information Systems</h3>
+            <p className="mt-1 text-sm text-slate-400">University of Jember · 2022–2026</p>
+            <p className="mt-4 text-2xl font-semibold text-slate-100">3.94 <span className="text-sm font-normal text-slate-500">/ 4.00 GPA</span></p>
+          </div>
+
+          <div className="glass-panel-soft rounded-2xl p-6">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-600">Languages</p>
+            <h3 className="mt-3 text-lg font-semibold text-slate-200">Indonesian & English</h3>
+            <p className="mt-1 text-sm leading-6 text-slate-500">Indonesian: native · English: working proficiency</p>
+            <p className="mt-4 text-2xl font-semibold text-slate-100">553 <span className="text-sm font-normal text-slate-500">TOEFL score</span></p>
+          </div>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
@@ -72,7 +85,7 @@ const Highlights = () => {
               ))}
             </div>
 
-            <a href="https://www.linkedin.com/in/valentinohariyanto" target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200">
+            <a href="https://www.linkedin.com/in/valentinohariyanto" target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 transition hover:gap-2.5 hover:text-sky-200">
               View full list on LinkedIn <span aria-hidden="true">↗</span>
             </a>
           </div>
