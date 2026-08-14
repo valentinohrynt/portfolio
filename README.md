@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Valentino Hariyanto — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio for **Software Engineer / Full-Stack Developer** opportunities.
 
-## Available Scripts
+This repository is intentionally designed as a curated portfolio rather than an automated mirror of every GitHub repository. It highlights selected work, professional experience, development programs, skills, certifications, and achievements with additional context about my role in each project.
 
-In the project directory, you can run:
+## Portfolio principles
 
-### `npm start`
+- **Curated projects over repository volume** — selected projects are described through short case studies instead of listing every public repository.
+- **Transparent skill levels** — core skills are separated from technologies encountered through AI-assisted development.
+- **AI-assisted work is labeled** — projects built with substantial AI coding assistance are identified as such, with emphasis on the parts I owned: requirements, product decisions, integration, testing, debugging, and iteration.
+- **No client-side GitHub token** — the portfolio no longer fetches repositories with a `REACT_APP_GITHUB_TOKEN`, avoiding exposure of a personal access token in the browser bundle.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Featured projects
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **ManusiaIn** — AI-powered text humanization platform with authentication, credits, AI-provider integration, and Midtrans payments. *(AI-assisted development)*
+- **Invte** — multi-tenant digital invitation and guest-management SaaS with a Flutter QR check-in companion app. *(AI-assisted development)*
+- **Kudos** — customizable digital gift/greeting SaaS with authentication, templates, QR generation, media, and testing. *(AI-assisted development)*
+- **StockHub** — inventory and supply-chain management system with Laravel and separate forecasting experiments. *(AI-assisted development)*
+- **AgroSewa** — multi-role agricultural equipment-rental system built with Laravel.
+- **MentalQ** — Kotlin/Jetpack Compose Android capstone project selected among the Top 50 Product Track teams at Bangkit Academy 2024.
 
-### `npm test`
+## Core skills represented
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend & Web
+PHP, Laravel, JavaScript, Node.js, Express.js, REST API, HTML, CSS, Bootstrap
 
-### `npm run build`
+### Database
+MySQL, SQL, relational database design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Mobile
+Kotlin, Android, Flutter, Dart
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Additional working knowledge
+Python, Flask, Pandas, basic data analysis
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### AI-assisted project exposure
+React, Next.js, TypeScript, Hono, Prisma, Drizzle, PostgreSQL, Cloudflare Workers, Cloudflare R2, Auth.js
 
-### `npm run eject`
+## Tech used by this portfolio
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React 19
+- Create React App / react-scripts
+- Tailwind CSS 3
+- Lucide React
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The current framework is intentionally kept simple; the portfolio does not migrate frameworks merely for the sake of appearing more modern.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Local development
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+npm start
+```
 
-## Learn More
+Production build:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Structure
 
-### Code Splitting
+```text
+src/
+  components/
+    Portfolio.jsx    # shell, hero, about, contact
+    Projects.jsx     # curated featured projects + case-study modal
+    Experience.jsx   # work experience + Bangkit/IDCamp programs
+    Skills.jsx       # core skills vs AI-assisted project exposure
+    Highlights.jsx   # certifications + achievements
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contact
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- GitHub: [valentinohrynt](https://github.com/valentinohrynt)
+- LinkedIn: [valentinohariyanto](https://www.linkedin.com/in/valentinohariyanto)
+- Email: hariyantovalentino@gmail.com
