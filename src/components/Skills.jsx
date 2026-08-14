@@ -1,5 +1,5 @@
 import React from 'react';
-import { Braces, Database, GitBranch, Layers3, Smartphone, Sparkles } from 'lucide-react';
+import { Braces, Database, GitBranch, Layers, Smartphone, Sparkles } from 'lucide-react';
 
 const groups = [
   {
@@ -58,7 +58,7 @@ const Skills = () => {
         <div className="mt-5 grid gap-5 lg:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <div className="flex items-center gap-3">
-              <span className="rounded-lg bg-emerald-50 p-2 text-emerald-700"><Layers3 size={18} /></span>
+              <span className="rounded-lg bg-emerald-50 p-2 text-emerald-700"><Layers size={18} /></span>
               <div>
                 <h3 className="text-lg font-semibold text-slate-950">Additional working knowledge</h3>
                 <p className="mt-0.5 text-sm text-slate-500">Used in coursework, experiments, or supporting project work.</p>
