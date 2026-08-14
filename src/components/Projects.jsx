@@ -1,200 +1,259 @@
-import React, { useState, useEffect } from 'react';
-import { ExternalLink, Search } from 'lucide-react';
+import React, { useState } from 'react';
+import {
+  ArrowUpRight,
+  CheckCircle2,
+  Github,
+  LockKeyhole,
+  Sparkles,
+  X,
+} from 'lucide-react';
 
-const Token = process.env.REACT_APP_GITHUB_TOKEN;
+const projects = [
+  {
+    title: 'ManusiaIn',
+    category: 'AI Product · SaaS',
+    summary:
+      'Indonesian AI text-humanization platform with authentication, credit usage, top-up payments, and multiple AI providers.',
+    stack: ['Next.js', 'TypeScript', 'Hono', 'PostgreSQL', 'Prisma', 'Cloudflare Workers', 'Midtrans', 'Gemini / Groq'],
+    aiAssisted: true,
+    privateRepo: true,
+    involvement:
+      'I defined the product requirements and user flows, used AI coding tools to accelerate implementation across a stack I was still exploring, then validated integrations, tested behavior, debugged failures, and iterated on the product.',
+    highlights: [
+      'Integrated multiple AI providers for text-processing workflows.',
+      'Implemented and validated account, credit, top-up, and payment flows.',
+      'Tested API behavior and resolved integration issues across frontend, backend, database, and payment services.',
+    ],
+  },
+  {
+    title: 'Invte',
+    category: 'Event SaaS · Web + Mobile',
+    summary:
+      'Multi-tenant digital invitation and guest-management platform with RSVP flows and a Flutter companion app for QR check-in.',
+    stack: ['Next.js', 'TypeScript', 'Hono', 'Drizzle', 'PostgreSQL', 'Cloudflare', 'R2', 'Flutter'],
+    aiAssisted: true,
+    privateRepo: true,
+    involvement:
+      'I shaped the product flow and feature requirements, used AI-assisted implementation for the web/API stack, and validated invitation, guest, RSVP, media, and check-in workflows. I also worked on the Flutter QR-scanner companion app.',
+    highlights: [
+      'Designed around multi-tenant invitation and guest-management workflows.',
+      'Connected web, API, database, storage, email, and QR check-in flows.',
+      'Built a Flutter companion scanner used for event guest check-in.',
+    ],
+  },
+  {
+    title: 'Kudos',
+    category: 'Digital Gift · SaaS',
+    summary:
+      'Customizable digital gift and greeting-page product with authentication, templates, QR generation, media handling, and security-oriented flows.',
+    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Drizzle', 'Auth.js', 'Cloudflare', 'Resend', 'Vitest / Playwright'],
+    aiAssisted: true,
+    privateRepo: true,
+    involvement:
+      'I translated the product idea into requirements and user flows, then used AI-assisted development to implement and validate the application. My work focused on product behavior, integration checks, debugging, and iteration rather than claiming deep expertise in every framework used.',
+    highlights: [
+      'Structured a reusable gift-page and template workflow.',
+      'Worked with authentication, QR generation, media, email, and protected gift-link flows.',
+      'Included automated testing tooling for unit/integration and end-to-end scenarios.',
+    ],
+  },
+  {
+    title: 'StockHub',
+    category: 'Inventory · Supply Chain',
+    summary:
+      'Inventory and supply-chain management system for café/roastery operations, with a Laravel application and separate forecasting experiments.',
+    stack: ['Laravel 12', 'PHP', 'Tailwind CSS', 'Python', 'Flask', 'LSTM'],
+    aiAssisted: true,
+    privateRepo: false,
+    github: 'https://github.com/valentinohrynt/stockhub-scm',
+    involvement:
+      'I defined the inventory and supply-chain workflows and used AI-assisted development to move quickly across the application and forecasting components, while checking the resulting behavior, data flow, and integration points.',
+    highlights: [
+      'Built inventory and supply-chain workflows in a Laravel 12 application.',
+      'Explored forecasting through a separate Python/Flask and LSTM codebase.',
+      'Focused on translating operational requirements into usable application flows.',
+    ],
+  },
+  {
+    title: 'AgroSewa',
+    category: 'Web Application · Team Project',
+    summary:
+      'Multi-role agricultural equipment-rental system supporting farmers, farmer groups, government users, and administrators.',
+    stack: ['Laravel 11', 'PHP', 'MySQL', 'MVC', 'Role-based Access'],
+    aiAssisted: false,
+    privateRepo: false,
+    github: 'https://github.com/valentinohrynt/AgroSewa-PPL-A07',
+    involvement:
+      'I contributed to a collaborative Laravel application with role-specific workflows covering equipment rental, user management, rental history, and assistance-request processes.',
+    highlights: [
+      'Implemented business workflows for several user roles.',
+      'Worked with Laravel MVC, authentication/authorization, relational data, and form-driven processes.',
+      'Collaborated within a team project and a shared application codebase.',
+    ],
+  },
+  {
+    title: 'MentalQ',
+    category: 'Android · Bangkit Capstone',
+    summary:
+      'Android mental-health journaling application that analyzes daily notes and supports personalized reflection and chat experiences.',
+    stack: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Retrofit', 'Room', 'Firebase', 'Hilt', 'Gemini API'],
+    aiAssisted: false,
+    privateRepo: false,
+    github: 'https://github.com/valentinohrynt/MentalQ-MD',
+    involvement:
+      'As part of the Mobile Development team, I worked on the native Android application and collaborated with Machine Learning and Cloud Computing teammates to connect product features and services.',
+    highlights: [
+      'Built Android features using Kotlin and Jetpack Compose.',
+      'Integrated API/data layers with Retrofit, Room, Firebase, and dependency injection.',
+      'Selected as a Top 50 Product Track capstone project from 644 Bangkit teams.',
+    ],
+  },
+];
 
-const Projects = ({ username = 'valentinohrynt', darkMode }) => {
-  const [repos, setRepos] = useState([]);
-  const [filteredRepos, setFilteredRepos] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [profile, setProfile] = useState(null);
-  const [repoLanguages, setRepoLanguages] = useState({});
+const otherProjects = [
+  'Jember FnB Loker',
+  'DESTINA',
+  'Restaurant Review',
+  'Anime Movie',
+  'SutoriApp',
+  'Dicoding Event',
+];
 
-  const devicons = {
-    Assembly: '<i class="devicon-labview-plain colored"></i> Assembly',
-    'C#': '<i class="devicon-csharp-plain colored"></i> C#',
-    'C++': '<i class="devicon-cplusplus-plain colored"></i> C++',
-    C: '<i class="devicon-c-plain colored"></i> C',
-    CSS: '<i class="devicon-css3-plain colored"></i> CSS',
-    Dart: '<i class="devicon-dart-plain colored"></i> Dart',
-    Go: '<i class="devicon-go-plain colored"></i> Go',
-    HTML: '<i class="devicon-html5-plain colored"></i> HTML',
-    Java: '<i class="devicon-java-plain colored" style="color: #ffca2c"></i> Java',
-    JavaScript: '<i class="devicon-javascript-plain colored"></i> JavaScript',
-    Kotlin: '<i class="devicon-kotlin-plain colored" style="color: #796bdc"></i> Kotlin',
-    PHP: '<i class="devicon-php-plain colored"></i> PHP',
-    Python: '<i class="devicon-python-plain colored" style="color: #3472a6"></i> Python',
-    Ruby: '<i class="devicon-ruby-plain colored"></i> Ruby',
-    Rust: '<i class="devicon-rust-plain colored" style="color: #DEA584"></i> Rust',
-    Sass: '<i class="devicon-sass-original colored"></i> Sass',
-    Swift: '<i class="devicon-swift-plain colored"></i> Swift',
-    TypeScript: '<i class="devicon-typescript-plain colored"></i> TypeScript',
-    Vue: '<i class="devicon-vuejs-plain colored"></i> Vue',
-    null: '<i class="devicon-markdown-original"></i> Markdown'
-  };
-
-  const createMarkup = (html) => {
-    return { __html: html };
-  };
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const res = await fetch(`https://api.github.com/users/${username}`, {
-          headers: {
-            Authorization: `token ${Token}`,
-          },
-        });
-        const data = await res.json();
-        setProfile(data); 
-      } catch (error) {
-        console.error('Error fetching profile:', error);
-      }
-    };
-    fetchProfile();
-  }, [username]);
-  
-  useEffect(() => {
-    const fetchRepos = async () => {
-      try {
-        const res = await fetch(
-          `https://api.github.com/users/${username}/repos?sort=pushed&per_page=100`, {
-            headers: {
-              Authorization: `token ${Token}`
-            }
-          }
-        );
-        const data = await res.json();
-        setRepos(data);
-        setFilteredRepos(data); 
-        
-        const languagesPromises = data.map(repo =>
-          fetch(repo.languages_url, {
-            headers: {
-              Authorization: `token ${Token}`
-            }
-          })
-            .then(res => res.json())
-            .catch(() => ({}))
-        );
-
-        const languagesResults = await Promise.all(languagesPromises);
-        const languagesMap = {};
-        data.forEach((repo, index) => {
-          languagesMap[repo.id] = languagesResults[index];
-        });
-        setRepoLanguages(languagesMap);
-      } catch (error) {
-        console.error('Error fetching repos:', error);
-      }
-    };
-    fetchRepos();
-  }, [username]);
-
-  useEffect(() => {
-    if (Array.isArray(repos)) {
-      const filtered = repos.filter(repo =>
-        repo.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (repo.description && repo.description.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
-      setFilteredRepos(filtered);
-    }
-  }, [searchTerm, repos]);
-
-  const getLanguagePercentages = (languages) => {
-    const total = Object.values(languages).reduce((sum, count) => sum + count, 0);
-    
-    if (total === 0) return [];
-  
-    return Object.entries(languages).map(([lang, count]) => ({
-      name: lang,
-      percentage: ((count / total) * 100).toFixed(1)
-    }));
-  };
-  
-  
-
-  if (!profile) {
-    return <div className="py-20 text-center">Loading...</div>;
-  }
+const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-      <div className="max-w-6xl px-4 mx-auto">
-        <div className="mb-12">
-          <h2 className="mb-6 font-mono text-3xl font-bold text-center">
-            <span className="text-cyan-500">&lt;</span>
-            Projects
-            <span className="text-cyan-500">/&gt;</span>
-          </h2>
+    <section id="work" className="border-t border-slate-200 bg-slate-50 py-20 sm:py-24">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <div className="mb-10 max-w-3xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">Selected work</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Projects with context, not a repository dump.</h2>
+          <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+            I curate the projects that best represent how I work. For AI-assisted projects, I explicitly separate product ownership and implementation exposure from technologies I claim as core skills.
+          </p>
+        </div>
 
-          {/* Search Bar */}
-          <div className="relative mb-8">
-            <Search className="absolute text-gray-400 transform -translate-y-1/2 left-3 top-1/2" size={20} />
-            <input
-              type="text"
-              placeholder="Search projects"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full pl-10 pr-4 py-2 rounded-lg border border-cyan-500/30 focus:border-cyan-500 outline-none transition-colors ${
-                darkMode ? 'bg-gray-800' : 'bg-white'
-              }`}
-            />
+        <div className="grid gap-5 md:grid-cols-2">
+          {projects.map((project) => (
+            <article key={project.title} className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+              <div className="mb-5 flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-blue-700">{project.category}</p>
+                  <h3 className="mt-1 text-2xl font-semibold tracking-tight text-slate-950">{project.title}</h3>
+                </div>
+                {project.aiAssisted && (
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-violet-50 px-2.5 py-1 text-xs font-semibold text-violet-700 ring-1 ring-inset ring-violet-200">
+                    <Sparkles size={13} /> AI-assisted
+                  </span>
+                )}
+              </div>
+
+              <p className="text-sm leading-6 text-slate-600">{project.summary}</p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.stack.slice(0, 6).map((item) => (
+                  <span key={item} className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">{item}</span>
+                ))}
+                {project.stack.length > 6 && (
+                  <span className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-500">+{project.stack.length - 6}</span>
+                )}
+              </div>
+
+              <div className="mt-auto flex flex-wrap items-center gap-4 pt-6">
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(project)}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-900"
+                >
+                  View case study <ArrowUpRight size={15} />
+                </button>
+                {project.github ? (
+                  <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-slate-900">
+                    <Github size={15} /> Repository
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center gap-1.5 text-sm text-slate-400">
+                    <LockKeyhole size={14} /> Private repository
+                  </span>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+            <div>
+              <h3 className="font-semibold text-slate-950">More projects</h3>
+              <p className="mt-1 text-sm text-slate-500">Smaller coursework, experiments, and earlier full-stack/mobile work remain available on GitHub.</p>
+            </div>
+            <a href="https://github.com/valentinohrynt?tab=repositories" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-700 hover:text-blue-900">
+              Browse GitHub <ArrowUpRight size={15} />
+            </a>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {otherProjects.map((project) => (
+              <span key={project} className="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600">{project}</span>
+            ))}
           </div>
         </div>
-
-        {/* Repository Grid */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {Array.isArray(filteredRepos) && filteredRepos.length > 0 ? (
-            filteredRepos.map((repo) => (
-              <div
-                key={repo.id}
-                className={`${
-                  darkMode ? 'bg-gray-800' : 'bg-white'
-                } rounded-lg p-6 border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300 group transform hover:-translate-y-2`}
-              >
-                <h3 className="flex items-center justify-between mb-3 font-mono text-xl font-semibold">
-                  {repo.name}
-                  <a
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-cyan-500 hover:text-cyan-400"
-                  >
-                    <ExternalLink size={20} />
-                  </a>
-                </h3>
-                <p className="mb-4 opacity-80 line-clamp-2">{repo.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {repoLanguages[repo.id] && 
-                    getLanguagePercentages(repoLanguages[repo.id]).map(({ name, percentage }) => (
-                      <span
-                        key={name}
-                        className="flex items-center gap-1 px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-500"
-                      >
-                        <span dangerouslySetInnerHTML={createMarkup(devicons[name] || devicons['null'])} />
-                        {percentage}%
-                      </span>
-                    ))
-                  }
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {repo.topics?.map((topic) => (
-                    <span
-                      key={topic}
-                      className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-500"
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>No repositories found.</p>
-          )}
-        </div>
       </div>
+
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={`${selectedProject.title} case study`}>
+          <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl sm:p-8">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-medium text-blue-700">{selectedProject.category}</p>
+                <h3 className="mt-1 text-3xl font-semibold tracking-tight text-slate-950">{selectedProject.title}</h3>
+              </div>
+              <button type="button" onClick={() => setSelectedProject(null)} className="rounded-lg p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-900" aria-label="Close case study">
+                <X size={20} />
+              </button>
+            </div>
+
+            {selectedProject.aiAssisted && (
+              <div className="mt-6 rounded-xl border border-violet-200 bg-violet-50 p-4">
+                <div className="flex items-center gap-2 font-semibold text-violet-800"><Sparkles size={16} /> Development approach</div>
+                <p className="mt-2 text-sm leading-6 text-violet-900/80">
+                  This project used an AI-assisted development workflow. The stack below describes the technologies used by the product; it does not imply deep expertise in every framework.
+                </p>
+              </div>
+            )}
+
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">My involvement</h4>
+              <p className="mt-2 leading-7 text-slate-700">{selectedProject.involvement}</p>
+            </div>
+
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">Key points</h4>
+              <ul className="mt-3 space-y-3">
+                {selectedProject.highlights.map((item) => (
+                  <li key={item} className="flex gap-3 text-sm leading-6 text-slate-700">
+                    <CheckCircle2 className="mt-0.5 shrink-0 text-blue-700" size={17} /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-400">Technology used</h4>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {selectedProject.stack.map((item) => (
+                  <span key={item} className="rounded-md bg-slate-100 px-2.5 py-1.5 text-xs font-medium text-slate-700">{item}</span>
+                ))}
+              </div>
+            </div>
+
+            {selectedProject.github && (
+              <a href={selectedProject.github} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-lg bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800">
+                <Github size={16} /> Open repository
+              </a>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
