@@ -13,14 +13,14 @@ const experience = [
       'Implemented and integrated web interfaces as part of the end-to-end delivery of internal applications.',
       'Worked on Tracer for operational asset management/diagnostics and Vantage for customer relationship, ODP mapping, and IndiBiz potential-customer data.',
     ],
-    stack: ['PHP', 'Laravel 12', 'MySQL', 'REST-style Web Development', 'React/Vite (project stack)'],
+    stack: ['PHP', 'Laravel 12', 'MySQL', 'Web Application Development', 'React/Vite (project stack)'],
   },
 ];
 
 const programs = [
   {
     name: 'Bangkit Academy 2024 — Mobile Development',
-    organization: 'led by Google, GoTo, and Traveloka',
+    organization: 'led by Google, Tokopedia, Gojek & Traveloka',
     period: 'Sep 2024 — Jan 2025',
     description:
       'Focused on native Android development with Kotlin. Graduated with Distinction and contributed to MentalQ, a Product Track capstone selected in the Top 50 from 644 teams.',
