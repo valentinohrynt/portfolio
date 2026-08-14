@@ -25,8 +25,8 @@ const Portfolio = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen text-slate-200">
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0b1016]/75 backdrop-blur-xl">
+    <div className="min-h-screen bg-black text-slate-200">
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
           <a href="#home" className="text-sm font-semibold tracking-wide text-slate-100">
             Valentino Hariyanto
@@ -47,7 +47,7 @@ const Portfolio = () => {
           <button
             type="button"
             onClick={() => setMenuOpen((value) => !value)}
-            className="rounded-lg border border-white/10 bg-white/5 p-2 text-slate-300 md:hidden"
+            className="rounded-lg border border-white/10 bg-white/[0.035] p-2 text-slate-300 md:hidden"
             aria-label="Toggle navigation"
           >
             {menuOpen ? <X size={19} /> : <Menu size={19} />}
@@ -55,14 +55,14 @@ const Portfolio = () => {
         </div>
 
         {menuOpen && (
-          <nav className="border-t border-white/5 bg-[#0b1016]/95 px-5 py-4 backdrop-blur-xl md:hidden" aria-label="Mobile navigation">
+          <nav className="border-t border-white/5 bg-black/95 px-5 py-4 backdrop-blur-xl md:hidden" aria-label="Mobile navigation">
             <div className="mx-auto flex max-w-6xl flex-col gap-1">
               {navigation.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 hover:bg-white/5"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 hover:bg-white/[0.035]"
                 >
                   {item.label}
                 </a>
@@ -76,7 +76,7 @@ const Portfolio = () => {
         <section id="home" className="py-20 sm:py-28 lg:py-32">
           <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-6 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
             <div>
-              <p className="mb-5 text-sm font-medium tracking-wide text-sky-300/90">
+              <p className="mb-5 text-sm font-medium tracking-wide text-sky-300/85">
                 Software Engineer / Full-Stack Developer
               </p>
               <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.035em] text-slate-100 sm:text-6xl lg:text-7xl">
@@ -89,13 +89,13 @@ const Portfolio = () => {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#work"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/10 px-4 py-2.5 text-sm font-semibold text-slate-100 transition hover:bg-white/15"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.07] px-4 py-2.5 text-sm font-semibold text-slate-100 transition hover:bg-white/[0.1]"
                 >
                   View projects <ArrowUpRight size={16} />
                 </a>
                 <a
                   href="mailto:hariyantovalentino@gmail.com"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-4 py-2.5 text-sm font-semibold text-slate-300 transition hover:bg-white/[0.07]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-4 py-2.5 text-sm font-semibold text-slate-300 transition hover:bg-white/[0.05]"
                 >
                   Contact me <Mail size={16} />
                 </a>
@@ -123,7 +123,7 @@ const Portfolio = () => {
         <section className="border-y border-white/5 py-16 sm:py-20">
           <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <p className="text-sm font-medium tracking-wide text-sky-300/90">About</p>
+              <p className="text-sm font-medium tracking-wide text-sky-300/85">About</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-100">About me</h2>
             </div>
             <div className="space-y-5 text-base leading-7 text-slate-400">
@@ -145,20 +145,20 @@ const Portfolio = () => {
         <section id="contact" className="border-t border-white/5 py-20 sm:py-24">
           <div className="mx-auto max-w-6xl px-5 sm:px-6">
             <div className="glass-panel max-w-4xl rounded-3xl p-7 sm:p-10">
-              <p className="text-sm font-medium tracking-wide text-sky-300/90">Contact</p>
+              <p className="text-sm font-medium tracking-wide text-sky-300/85">Contact</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-100 sm:text-4xl">Open to software engineering and full-stack opportunities.</h2>
               <p className="mt-5 max-w-2xl text-base leading-7 text-slate-400">
                 Email or LinkedIn is the easiest way to reach me. My GitHub contains public coursework, experiments, and selected project code.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
-                <a href="mailto:hariyantovalentino@gmail.com" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/10 px-4 py-2.5 text-sm font-semibold text-slate-100 hover:bg-white/15">
+                <a href="mailto:hariyantovalentino@gmail.com" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.07] px-4 py-2.5 text-sm font-semibold text-slate-100 hover:bg-white/[0.1]">
                   <Mail size={16} /> Email
                 </a>
-                <a href="https://www.linkedin.com/in/valentinohariyanto" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-4 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/[0.07]">
+                <a href="https://www.linkedin.com/in/valentinohariyanto" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-4 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/[0.05]">
                   <Linkedin size={16} /> LinkedIn
                 </a>
-                <a href="https://github.com/valentinohrynt" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.035] px-4 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/[0.07]">
+                <a href="https://github.com/valentinohrynt" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.025] px-4 py-2.5 text-sm font-semibold text-slate-300 hover:bg-white/[0.05]">
                   <Github size={16} /> GitHub
                 </a>
               </div>
