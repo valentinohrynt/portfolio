@@ -4,6 +4,7 @@ import { ArrowUpRight, Github, LockKeyhole, X } from 'lucide-react';
 const baseProjects = [
   {
     title: 'ManusiaIn',
+    live: 'https://manusiain.web.id',
     stack: ['Next.js', 'TypeScript', 'Hono', 'PostgreSQL', 'Prisma', 'Cloudflare Workers', 'Midtrans', 'Gemini / Groq'],
     aiAssisted: true,
     id: {
@@ -29,6 +30,7 @@ const baseProjects = [
   },
   {
     title: 'Invte',
+    live: 'https://invte.web.id',
     stack: ['Next.js', 'TypeScript', 'Hono', 'Drizzle', 'PostgreSQL', 'Cloudflare', 'R2', 'Flutter'],
     aiAssisted: true,
     id: {
@@ -54,6 +56,7 @@ const baseProjects = [
   },
   {
     title: 'Kudos',
+    live: 'https://kudos.my.id',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Drizzle', 'Auth.js', 'Cloudflare', 'Resend', 'Vitest / Playwright'],
     aiAssisted: true,
     id: {
@@ -165,6 +168,7 @@ const copy = {
     title: 'Proyek pilihan',
     intro: 'Beberapa proyek yang cukup mewakili jenis aplikasi dan permasalahan yang pernah saya kerjakan.',
     details: 'Detail',
+    liveSite: 'Buka situs',
     repository: 'Repository',
     privateRepository: 'Repository privat',
     moreTitle: 'Proyek lainnya',
@@ -176,6 +180,7 @@ const copy = {
     keyPoints: 'Poin utama',
     technology: 'Teknologi yang digunakan',
     openRepository: 'Buka repository',
+    openLiveSite: 'Buka situs proyek',
     close: 'Tutup detail proyek',
   },
   en: {
@@ -183,6 +188,7 @@ const copy = {
     title: 'Selected projects',
     intro: 'A few projects that show the kind of problems and products I have worked on.',
     details: 'Details',
+    liveSite: 'Live site',
     repository: 'Repository',
     privateRepository: 'Private repository',
     moreTitle: 'More projects',
@@ -194,6 +200,7 @@ const copy = {
     keyPoints: 'Key points',
     technology: 'Technology used',
     openRepository: 'Open repository',
+    openLiveSite: 'Open live site',
     close: 'Close project details',
   },
 };
@@ -235,6 +242,11 @@ const Projects = ({ language = 'id' }) => {
                 <button type="button" onClick={() => setSelectedProject(project)} className="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-300 transition hover:text-sky-200">
                   {text.details} <ArrowUpRight size={15} />
                 </button>
+                {project.live && (
+                  <a href={project.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-300 transition hover:text-white">
+                    {text.liveSite} <ArrowUpRight size={14} />
+                  </a>
+                )}
                 {project.github ? (
                   <a href={project.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 transition hover:text-slate-300">
                     <Github size={15} /> {text.repository}
@@ -311,10 +323,19 @@ const Projects = ({ language = 'id' }) => {
               </div>
             </div>
 
-            {selectedProject.github && (
-              <a href={selectedProject.github} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.07] px-4 py-2.5 text-sm font-semibold text-slate-100 hover:bg-white/[0.1]">
-                <Github size={16} /> {text.openRepository}
-              </a>
+            {(selectedProject.live || selectedProject.github) && (
+              <div className="mt-7 flex flex-wrap gap-3">
+                {selectedProject.live && (
+                  <a href={selectedProject.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-sky-300/15 bg-sky-300/[0.08] px-4 py-2.5 text-sm font-semibold text-sky-200 transition hover:bg-sky-300/[0.12]">
+                    {text.openLiveSite} <ArrowUpRight size={16} />
+                  </a>
+                )}
+                {selectedProject.github && (
+                  <a href={selectedProject.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.07] px-4 py-2.5 text-sm font-semibold text-slate-100 hover:bg-white/[0.1]">
+                    <Github size={16} /> {text.openRepository}
+                  </a>
+                )}
+              </div>
             )}
           </div>
         </div>
