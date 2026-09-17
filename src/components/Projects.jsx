@@ -1,433 +1,363 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Github, Lock, X } from 'lucide-react';
+import { ExternalLink, Github, Lock, X } from 'lucide-react';
 
 const baseProjects = [
   {
-    code: 'PROJ-01',
     title: 'ManusiaIn',
-    year: '2025',
     live: 'https://manusiain.web.id',
     stack: ['Next.js', 'TypeScript', 'Hono', 'PostgreSQL', 'Prisma', 'Cloudflare Workers', 'Midtrans'],
-    type: 'SaaS Platform',
+    type: 'Web App & SaaS',
     id: {
-      category: 'Sistem Pemrosesan Teks & Akun Berlangganan',
-      summary: 'Platform web pengolahan teks Bahasa Indonesia dengan verifikasi akun, saldo token kredit, dan gateway pembayaran otomatis melalui Midtrans Snap & Webhook.',
-      involvement: 'Merancang arsitektur sistem, memetakan siklus transaksi saldo pengguna, integrasi webhook gateway pembayaran, serta routing Hono pada runtime Cloudflare Workers.',
+      category: 'Aplikasi Web & Pengolahan Teks',
+      summary: 'Aplikasi web untuk olah teks Bahasa Indonesia dengan sistem kuota/kredit user dan integrasi pembayaran otomatis pakai Midtrans.',
+      involvement: 'Saya merancang alur transaksi kredit user, menghubungkan webhook pembayaran Midtrans, dan membangun backend Hono di Cloudflare Workers.',
       highlights: [
-        'Sinkronisasi status transaksi instan berbasis webhook Midtrans dan database PostgreSQL.',
-        'Penerapan Prisma ORM untuk pemodelan data akun, mutasi kredit, dan audit log.',
-        'Optimalisasi latency response time menggunakan arsitektur edge computing.',
+        'Integrasi webhook Midtrans buat otomatisasi update saldo kredit saat pembayaran berhasil.',
+        'Penyusunan skema database PostgreSQL pakai Prisma ORM untuk akun dan riwayat transaksi.',
+        'Deploy endpoint API dengan latensi rendah di Cloudflare Workers.',
       ],
     },
     en: {
-      category: 'Text Processing & Subscription System',
-      summary: 'Web platform for Indonesian text workflows featuring user balance accounting, token deduction engines, and automated payments via Midtrans.',
-      involvement: 'Architected system flow, atomic balance mutation rules, webhook verification pipelines, and Hono routing on Cloudflare Workers edge runtime.',
+      category: 'Web App & Text Processing',
+      summary: 'Indonesian text tool with user accounts, credit usage balances, and automated checkout via Midtrans.',
+      involvement: 'Designed user credit transaction flows, hooked up Midtrans payment webhooks, and built Hono API endpoints on Cloudflare Workers.',
       highlights: [
-        'Instant payment reconciliation via Midtrans webhook signatures and PostgreSQL data layer.',
-        'Prisma ORM schema modeling for user credentials, credit audits, and usage logs.',
-        'Latency-minimized responses through edge compute deployment.',
+        'Midtrans webhook integration for automatic balance updates upon verified payment.',
+        'PostgreSQL schema design with Prisma ORM for user accounts and transaction history.',
+        'Low-latency API deployment on Cloudflare Workers.',
       ],
     },
   },
   {
-    code: 'PROJ-02',
     title: 'Invte',
-    year: '2025',
     live: 'https://invte.web.id',
     stack: ['Next.js', 'TypeScript', 'Hono', 'Drizzle ORM', 'PostgreSQL', 'Cloudflare R2', 'Flutter'],
-    type: 'Web & Mobile Ecosystem',
+    type: 'Web & Mobile App',
     id: {
-      category: 'Platform Manajemen Undangan & Scanner Check-in',
-      summary: 'Layanan manajemen tamu undangan digital dengan tracking RSVP real-time serta aplikasi mobile pendamping Flutter untuk proses verifikasi QR check-in cepat di lokasi acara.',
-      involvement: 'Merancang schema Drizzle ORM, pipeline upload media aman ke Cloudflare R2, serta mengembangkan aplikasi Flutter scanner Android dari perancangan hingga pengujian.',
+      category: 'Platform Undangan & Manajemen Tamu',
+      summary: 'Layanan undangan digital dengan RSVP real-time, plus aplikasi mobile Flutter buat scan QR code check-in tamu di lokasi acara.',
+      involvement: 'Saya ngurus skema database relasional tamu pakai Drizzle ORM, upload aset ke Cloudflare R2, dan bikin aplikasi mobile scanner-nya pakai Flutter.',
       highlights: [
-        'Database relasional terstruktur untuk mengelola puluhan ribu data tamu dan log kedatangan.',
-        'Aplikasi scanner Flutter responsif dengan kamera scanner QR real-time.',
-        'Integrasi presigned URL untuk transfer aset media tanpa membebani server inti.',
+        'Aplikasi Android scanner Flutter yang responsif buat validasi QR tamu secara instan.',
+        'Struktur data tamu dan log check-in yang rapi di PostgreSQL.',
+        'Upload media undangan aman lewat presigned URL Cloudflare R2.',
       ],
     },
     en: {
-      category: 'Event Attendance & Check-in Platform',
-      summary: 'Digital guest-list management service featuring live RSVP status tracking and an accompanying Flutter Android scanner app for fast on-premise check-in.',
-      involvement: 'Designed Drizzle ORM schemas, Cloudflare R2 media upload channels, and engineered the companion Flutter Android scanner application.',
+      category: 'Invitations & Guest Management',
+      summary: 'Digital event invitations with live RSVP status and a companion Flutter mobile app for fast QR check-ins.',
+      involvement: 'Handled relational guest schemas with Drizzle ORM, Cloudflare R2 media storage, and built the companion Flutter Android scanner app.',
       highlights: [
-        'Relational data models handling high-concurrency guest registries and attendance logs.',
-        'Lightweight Flutter QR scanner app tuned for instant camera capture feedback.',
-        'Secure asset pipeline via authenticated presigned URLs on Cloudflare R2.',
+        'Fast Flutter Android scanner app for real-time QR attendance validation.',
+        'Structured guest database and check-in logs in PostgreSQL.',
+        'Direct media upload pipeline via presigned URLs on Cloudflare R2.',
       ],
     },
   },
   {
-    code: 'PROJ-03',
     title: 'Kudos',
-    year: '2025',
     live: 'https://kudos.my.id',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Drizzle ORM', 'Auth.js', 'Resend', 'Vitest'],
-    type: 'Interactive Web Service',
+    type: 'Web Service',
     id: {
-      category: 'Digital Greeting & Celebration Page Builder',
-      summary: 'Aplikasi pembangun halaman ucapan dan gift interaktif dengan generator QR code, proteksi link terverifikasi, dan dispatch email transaksional otomatis.',
-      involvement: 'Menerapkan manajemen sesi Auth.js, rendering template halaman dinamis berbasis data JSON, pengiriman email Resend, dan penulisan test suite Vitest.',
+      category: 'Halaman Ucapan & Digital Gift',
+      summary: 'Web untuk bikin halaman ucapan interaktif yang bisa dikustomisasi, dibagikan lewat link dan QR code, serta ada fitur kirim email otomatis.',
+      involvement: 'Menerapkan sistem login dan proteksi route dengan Auth.js, templating dinamis, integrasi email Resend, dan nulis unit test dengan Vitest.',
       highlights: [
-        'Keamanan autentikasi dan session lifecycle terkelola rapi menggunakan Auth.js.',
-        'Integrasi API pengiriman email transaksional dengan monitoring delivery rate.',
-        'Uji kualitas kode melalui unit testing dan integration testing Vitest.',
+        'Pengelolaan sesi pengguna yang aman dan rapi pakai Auth.js.',
+        'Kirim email konfirmasi dan notifikasi otomatis lewat Resend API.',
+        'Pengecekan stabilitas kode dengan pengujian otomatis Vitest.',
       ],
     },
     en: {
-      category: 'Interactive Celebration Page Builder',
-      summary: 'Personalized interactive greeting page builder featuring custom QR code exports, password-protected links, and automated transactional emails.',
-      involvement: 'Implemented Auth.js session handling, dynamic JSON template engines, Resend transactional email integration, and Vitest test suites.',
+      category: 'Interactive Greetings & Gift Pages',
+      summary: 'Customizable greeting and celebration pages shared via QR codes, with password protection and transactional emails.',
+      involvement: 'Implemented login sessions with Auth.js, dynamic page rendering, email delivery with Resend, and wrote unit tests with Vitest.',
       highlights: [
-        'Robust route guards and verified sessions powered by Auth.js.',
-        'Reliable transactional email dispatch pipeline using Resend.',
-        'Code regression prevention via Vitest unit and integration suites.',
+        'Secure user sessions and route protection powered by Auth.js.',
+        'Automated notification emails via Resend API.',
+        'Automated regression checks using Vitest.',
       ],
     },
   },
   {
-    code: 'PROJ-04',
     title: 'StockHub',
-    year: '2025',
     stack: ['Laravel 12', 'PHP', 'Tailwind CSS', 'MySQL', 'Python', 'Flask', 'LSTM'],
     github: 'https://github.com/valentinohrynt/stockhub-scm',
-    type: 'SCM & Inventory System',
+    type: 'Manajemen Inventaris',
     id: {
-      category: 'Sistem Rantai Pasok & Prediksi Bahan Baku',
-      summary: 'Aplikasi manajemen logistik dan rantai pasok untuk operasional bisnis F&B, dilengkapi reorder threshold otomatis dan bridging data ke service forecasting Python terpisah.',
-      involvement: 'Mengembangkan logika aplikasi backend Laravel 12 (MVC), transaksi basis data multi-tabel, otorisasi peran pengguna (RBAC), serta REST API ke service LSTM.',
+      category: 'Sistem Stok & Supply Chain F&B',
+      summary: 'Aplikasi manajemen stok bahan baku untuk operasional café dan roastery, ada batas minimum restock, dan terhubung ke service prediksi kebutuhan bahan berbasis Python.',
+      involvement: 'Saya mengembangkan backend Laravel 12, mengatur transaksi database stok bahan baku, hak akses staf/manajer, dan API ke service model prediksi.',
       highlights: [
-        'Tracking otomatis bahan baku dari resep pesanan menggunakan mutasi stok relasional.',
-        'Penyusunan API terstruktur untuk bridging data transaksi ke model estimasi Python.',
-        'Pemberlakuan hak akses bertingkat bagi staf inventaris, kasir, dan pengelola.',
+        'Kalkulasi otomatis pengurangan stok bahan berdasarkan resep menu yang dipesan.',
+        'REST API terstruktur untuk kirim data historis transaksi ke service forecasting Python.',
+        'Pembagian hak akses role pengguna (kasir, gudang, dan pemilik usaha).',
       ],
     },
     en: {
-      category: 'Supply Chain & Material Forecasting',
-      summary: 'Logistics and supply chain management system for F&B operations, with automated reorder triggers and data pipeline feeding a Python forecasting service.',
-      involvement: 'Engineered Laravel 12 MVC backend logic, multi-table transactional database operations, role authorization, and REST feeds for predictive services.',
+      category: 'F&B Inventory & Supply Chain',
+      summary: 'Stock and supply-chain app for cafés and roasteries with auto reorder alerts and a separate Python service for ingredient demand forecasting.',
+      involvement: 'Built Laravel 12 backend logic, database transactions for stock deductions, user access roles, and API links to the Python prediction service.',
       highlights: [
-        'Real-time material deduction tracking calculated directly from item recipe specs.',
-        'Clean API contracts delivering historical transaction feeds to Python LSTM models.',
-        'Tiered access boundaries separating warehouse operators, cashiers, and management.',
+        'Automatic ingredient deductions based on ordered menu recipes.',
+        'Clean REST API providing transactional logs to the Python forecasting service.',
+        'Role-based permissions for cashiers, stock clerks, and owners.',
       ],
     },
   },
   {
-    code: 'PROJ-05',
     title: 'AgroSewa',
-    year: '2024',
-    stack: ['Laravel 11', 'PHP', 'MySQL', 'Blade', 'RBAC Security'],
+    stack: ['Laravel 11', 'PHP', 'MySQL', 'Blade', 'RBAC'],
     github: 'https://github.com/valentinohrynt/AgroSewa-PPL-A07',
-    type: 'Enterprise Web Application',
+    type: 'Aplikasi Web',
     id: {
-      category: 'Sistem Persewaan Alat Pertanian Multi-Role',
-      summary: 'Platform tata kelola alokasi dan persewaan alat mesin pertanian dengan empat tingkatan pengguna: Petani, Kelompok Tani, Dinas Pertanian, dan Superadmin.',
-      involvement: 'Merancang skema relasional database, state machine alur sewa bertahap (pengajuan, verifikasi, serah-terima, pengembalian), serta verifikasi berkas administrasi.',
+      category: 'Sistem Sewa Alat Pertanian Multi-User',
+      summary: 'Aplikasi web buat sewa alat mesin pertanian dengan 4 jenis akun: Petani, Kelompok Tani, Dinas Pertanian, dan Superadmin.',
+      involvement: 'Merancang database relasional MySQL, alur peminjaman bertahap (pengajuan, verifikasi syarat, serah-terima, dan pengembalian), serta validasi form.',
       highlights: [
-        'Implementasi siklus sewa yang mencegah duplikasi jadwal penggunaan unit mesin.',
-        'Role-Based Access Control (RBAC) ketat untuk menjaga integritas persetujuan dinas.',
-        'Optimasi query MySQL untuk laporan audit rekapitulasi bantuan dan persewaan.',
+        'Pengecekan jadwal dan unit alat sewa biar tidak bentrok antar peminjam.',
+        'Hak akses ketat sesuai peran pengguna agar alur verifikasi dinas tetap valid.',
+        'Laporan rekap riwayat persewaan alat pertanian per wilayah.',
       ],
     },
     en: {
-      category: 'Multi-Role Agricultural Leasing Platform',
-      summary: 'Public sector machinery allocation and leasing system built for four distinct actor categories: Farmers, Farmer Groups, Government Officers, and Superadmins.',
-      involvement: 'Designed normalized MySQL schemas, state-driven leasing lifecycles (application, document review, dispatch, return), and audit compliance logs.',
+      category: 'Agricultural Equipment Rental Web App',
+      summary: 'Machinery rental platform for 4 user types: individual farmers, farmer groups, agriculture agency officers, and admins.',
+      involvement: 'Designed MySQL database schemas, step-by-step rental status lifecycles (request, verification, handoff, return), and input validation.',
       highlights: [
-        'Scheduling state machines preventing equipment reservation conflicts.',
-        'Strict Role-Based Access Control enforcing regulatory approval stages.',
-        'Optimized MySQL aggregations for regional allocation audit reporting.',
+        'Booking schedule validation to prevent machinery double-booking.',
+        'Strict role-based access to safeguard verification workflows.',
+        'Summary reports for regional machinery rental history.',
       ],
     },
   },
   {
-    code: 'PROJ-06',
     title: 'MentalQ',
-    year: '2024',
     stack: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Retrofit', 'Room DB', 'Firebase', 'Hilt'],
     github: 'https://github.com/valentinohrynt/MentalQ-MD',
-    type: 'Native Android App',
+    type: 'Aplikasi Android',
     id: {
-      category: 'Aplikasi Android Capstone Bangkit (Top 50 Nasional)',
-      summary: 'Aplikasi native Android untuk pencatatan jurnal emosi dan refleksi harian, mengintegrasikan autentikasi Firebase, local storage Room untuk offline mode, dan arsitektur MVVM bersih.',
-      involvement: 'Memimpin implementasi aplikasi Android native dengan Jetpack Compose, dependency injection via Hilt, abstraction layer Retrofit, dan persistence Room Database.',
+      category: 'Aplikasi Mobile Capstone Bangkit',
+      summary: 'Aplikasi Android native untuk jurnal emosi dan refleksi harian. Pakai Firebase Auth, Room DB biar tetap bisa dipakai offline, dan arsitektur MVVM.',
+      involvement: 'Saya mengembangkan aplikasi Android native-nya pakai Jetpack Compose, integrasi API Retrofit, penyimpanan lokal Room, dan dependency injection Hilt.',
       highlights: [
-        'Terpilih sebagai Top 50 Product Track Capstone Project dari total 644 tim nasional.',
-        'Penerapan arsitektur Clean Code MVVM yang mudah diuji dan dikembangkan.',
-        'Sinkronisasi data offline-first yang menjaga catatan pengguna tetap aman tanpa koneksi internet.',
+        'Terpilih jadi Top 50 Product Track Capstone Project dari total 644 tim nasional di Bangkit Academy.',
+        'Arsitektur MVVM yang rapi dan mudah dirawat.',
+        'Mode offline lancar berkat caching Room DB yang otomatis sinkron ke server.',
       ],
     },
     en: {
-      category: 'Native Android App (Top 50 Bangkit Capstone)',
-      summary: 'Native Android application for reflective journaling, featuring Firebase authentication, Room offline-first storage, and clean MVVM architecture.',
-      involvement: 'Led native Android implementation using Jetpack Compose, Hilt dependency injection, Retrofit networking layers, and Room Database persistence.',
+      category: 'Android App (Bangkit Capstone)',
+      summary: 'Native Android emotional journaling app featuring Firebase login, Room offline caching, and clean MVVM architecture.',
+      involvement: 'Developed the native Android app using Jetpack Compose, Retrofit API connections, Room persistence, and Hilt dependency injection.',
       highlights: [
-        'Selected among the Top 50 Product Track projects nationwide from 644 teams.',
-        'Clean MVVM architecture ensuring maintainability and robust state handling.',
-        'Offline-first synchronization protecting journal entries regardless of network reach.',
+        'Selected in the Top 50 Product Track projects nationwide out of 644 Bangkit teams.',
+        'Clean MVVM architecture ensuring maintainability.',
+        'Offline-first reliability with local Room caching.',
       ],
     },
   },
 ];
 
-const archivalWorks = [
-  { name: 'Jember FnB Loker', desc: 'Custom micro-router PHP & MySQL regional culinary job board', year: '2024' },
-  { name: 'DESTINA', desc: 'Tourism exploration web portal with route scheduling', year: '2024' },
-  { name: 'Restaurant Review PWA', desc: 'Progressive Web App with IndexedDB offline capability', year: '2024' },
-  { name: 'Anime Movie Catalog', desc: 'Lightweight REST client with search filtering & caching', year: '2024' },
-  { name: 'SutoriApp', desc: 'Android camera story sharing application with location metadata', year: '2024' },
-  { name: 'Dicoding Event Manager', desc: 'Android scheduling app using background WorkManager services', year: '2024' },
+const otherWorks = [
+  { name: 'Jember FnB Loker', desc: 'Website lowongan kerja kuliner lokal pakai PHP tanpa framework & MySQL' },
+  { name: 'DESTINA', desc: 'Web portal info wisata dan rencana perjalanan' },
+  { name: 'Restaurant Review PWA', desc: 'Aplikasi web katalog restoran dengan dukungan offline via IndexedDB' },
+  { name: 'Anime Movie Catalog', desc: 'Katalog film anime dengan pencarian dan filter API' },
+  { name: 'SutoriApp', desc: 'Aplikasi Android buat upload cerita foto pakai CameraX dan lokasi' },
+  { name: 'Dicoding Event Manager', desc: 'Aplikasi Android pengingat jadwal event pakai WorkManager di background' },
 ];
 
 const copy = {
   id: {
-    sectionNum: 'SEKSI III',
-    label: 'KATALOG SISTEM & KARYA REKAYASA',
-    title: 'Daftar Proyek Terpilih',
-    intro: 'Dokumentasi komprehensif sistem perangkat lunak yang telah dirancang, dibangun, dan diimplementasikan.',
-    specBtn: 'Bedah Arsitektur',
-    liveLink: 'Buka Live Web',
-    codeLink: 'Source Code',
-    privCode: 'Private Repo',
-    archiveTitle: 'Arsip Repositori & Codebase Pendukung',
-    archiveIntro: 'Implementasi modul, eksperimen teknologi, dan proyek pembelajaran yang tercatat pada repositori publik.',
-    viewGithub: 'Kunjungi GitHub Utama',
-    modalTitle: 'Dokumentasi Teknis Proyek',
-    modalSummary: 'Ringkasan Sistem',
-    modalInvolvement: 'Peran & Tanggung Jawab Rekayasa',
-    modalHighlights: 'Poin Kunci Implementasi',
-    modalTech: 'Toolchain & Library',
+    label: 'Proyek Pilihan',
+    title: 'Beberapa aplikasi yang pernah saya buat',
+    intro: 'Mulai dari aplikasi web SaaS, backend sistem internal, sampai aplikasi mobile Android native.',
+    inspect: 'Lihat Rincian',
+    live: 'Buka Web',
+    code: 'Source Code',
+    priv: 'Repo Privat',
+    archiveTitle: 'Proyek dan eksperimen lainnya',
+    archiveIntro: 'Eksperimen kecil, tugas kuliah, dan latihan framework yang bisa dilihat di GitHub.',
+    githubBtn: 'Lihat Profil GitHub',
+    modalTitle: 'Detail Proyek',
+    modalSummary: 'Tentang Aplikasi',
+    modalInvolvement: 'Apa yang Saya Kerjakan',
+    modalHighlights: 'Poin Penting',
+    modalStack: 'Teknologi',
     close: 'Tutup',
   },
   en: {
-    sectionNum: 'SECTION III',
-    label: 'SYSTEM CATALOGUE & WORKS',
-    title: 'Selected Engineering Projects',
-    intro: 'A structured registry of software systems designed, developed, and deployed across production and academic environments.',
-    specBtn: 'Inspect Specs',
-    liveLink: 'Open Live System',
-    codeLink: 'Source Code',
-    privCode: 'Private Repo',
-    archiveTitle: 'Archival Repositories & Working Codebases',
-    archiveIntro: 'Proof-of-concepts, coursework projects, and exploratory repositories available on GitHub.',
-    viewGithub: 'View Complete GitHub',
-    modalTitle: 'Project Technical Dossier',
-    modalSummary: 'System Overview',
-    modalInvolvement: 'Engineering Responsibilities',
-    modalHighlights: 'Implementation Highlights',
-    modalTech: 'Toolchain & Libraries',
+    label: 'Selected Projects',
+    title: 'Applications I have built',
+    intro: 'Spanning SaaS web apps, internal backend systems, and native Android mobile apps.',
+    inspect: 'View Details',
+    live: 'Live Site',
+    code: 'Source Code',
+    priv: 'Private Repo',
+    archiveTitle: 'Other projects and experiments',
+    archiveIntro: 'Coursework, mini experiments, and earlier codebases available on GitHub.',
+    githubBtn: 'View GitHub Profile',
+    modalTitle: 'Project Details',
+    modalSummary: 'About the App',
+    modalInvolvement: 'What I Worked On',
+    modalHighlights: 'Key Highlights',
+    modalStack: 'Technologies',
     close: 'Close',
   },
 };
 
 const Projects = ({ language = 'id' }) => {
-  const [activeProject, setActiveProject] = useState(null);
+  const [selected, setSelected] = useState(null);
   const text = copy[language];
   const list = baseProjects.map((p) => ({ ...p, ...p[language] }));
 
   return (
-    <section id="work" className="editorial-border-b">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-4 editorial-border-b">
-          <div>
-            <div className="font-mono text-xs text-ink-100 uppercase tracking-wider mb-1">
-              {text.sectionNum} · {text.label}
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl text-ink-pure font-normal">
-              {text.title}
-            </h2>
-          </div>
-          <p className="max-w-md text-sm text-ink-100">
-            {text.intro}
-          </p>
+    <section id="work" className="py-20 border-b border-dark-800">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-12">
+          <p className="text-xs font-mono text-amber-400/90 tracking-wide uppercase mb-1.5">{text.label}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">{text.title}</h2>
+          <p className="mt-2 text-sm text-zinc-400 max-w-xl">{text.intro}</p>
         </div>
 
-        {/* Editorial Table-Grid of Projects */}
-        <div className="divide-y divide-[#DDD5C3] editorial-border bg-paper-100">
+        <div className="grid gap-4 sm:grid-cols-2">
           {list.map((proj) => (
-            <article
-              key={proj.title}
-              className="p-6 sm:p-8 hover:bg-[#F9F7F1] transition-colors"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                {/* Meta Column */}
-                <div className="lg:col-span-3 space-y-1">
-                  <div className="flex items-center gap-2 font-mono text-xs text-accent-rust font-bold">
-                    <span>{proj.code}</span>
-                    <span>·</span>
-                    <span>{proj.year}</span>
-                  </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl text-ink-pure font-normal">
-                    {proj.title}
-                  </h3>
-                  <div className="font-mono text-xs text-ink-100 uppercase tracking-wider pt-1">
-                    {proj.type}
-                  </div>
+            <div key={proj.title} className="craft-card p-6 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-xs font-medium text-amber-400/90">{proj.type}</span>
+                  {proj.live && (
+                    <span className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Live
+                    </span>
+                  )}
                 </div>
 
-                {/* Content Column */}
-                <div className="lg:col-span-6 space-y-3">
-                  <div className="font-sans text-xs font-semibold text-accent-forest">
-                    {proj.category}
-                  </div>
-                  <p className="text-sm leading-relaxed text-ink-200">
-                    {proj.summary}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {proj.stack.map((s) => (
-                      <span
-                        key={s}
-                        className="bg-paper-200 editorial-border px-2 py-0.5 font-mono text-[11px] text-ink-200"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
+                <h3 className="text-lg font-bold text-zinc-100 mb-1">{proj.title}</h3>
+                <p className="text-xs text-zinc-400 mb-3">{proj.category}</p>
+                <p className="text-sm leading-relaxed text-zinc-400 line-clamp-3 mb-5">{proj.summary}</p>
+              </div>
+
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-5 font-mono text-xs">
+                  {proj.stack.map((s) => (
+                    <span key={s} className="px-2 py-0.5 rounded bg-zinc-850 border border-zinc-800 text-zinc-300">
+                      {s}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Action Column */}
-                <div className="lg:col-span-3 flex lg:flex-col items-center lg:items-end justify-between lg:justify-start gap-2 pt-2 lg:pt-0">
+                <div className="flex items-center gap-2 pt-4 border-t border-zinc-800/80">
                   <button
                     type="button"
-                    onClick={() => setActiveProject(proj)}
-                    className="inline-flex items-center gap-1 font-mono text-xs font-bold text-ink-pure bg-paper-200 hover:bg-paper-300 editorial-border px-3 py-1.5 transition"
+                    onClick={() => setSelected(proj)}
+                    className="flex-1 py-1.5 px-3 rounded-md bg-zinc-850 hover:bg-zinc-800 border border-zinc-700/80 text-xs font-medium text-zinc-200 transition text-center"
                   >
-                    {text.specBtn}
+                    {text.inspect}
                   </button>
-
-                  <div className="flex items-center gap-2 pt-2">
-                    {proj.live && (
-                      <a
-                        href={proj.live}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1 font-mono text-xs text-accent-forest hover:underline"
-                      >
-                        {text.liveLink} <ArrowUpRight size={13} />
-                      </a>
-                    )}
-                    {proj.github ? (
-                      <a
-                        href={proj.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1 font-mono text-xs text-ink-200 hover:text-ink-pure"
-                      >
-                        <Github size={13} /> {text.codeLink}
-                      </a>
-                    ) : (
-                      <span className="inline-flex items-center gap-1 font-mono text-xs text-ink-50 cursor-not-allowed">
-                        <Lock size={12} /> {text.privCode}
-                      </span>
-                    )}
-                  </div>
+                  {proj.live && (
+                    <a
+                      href={proj.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="py-1.5 px-3 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-xs font-medium text-emerald-400 transition flex items-center gap-1"
+                      title={text.live}
+                    >
+                      <ExternalLink size={13} />
+                    </a>
+                  )}
+                  {proj.github ? (
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="py-1.5 px-3 rounded-md bg-zinc-850 hover:bg-zinc-800 border border-zinc-700/80 text-xs font-medium text-zinc-300 transition flex items-center gap-1"
+                      title={text.code}
+                    >
+                      <Github size={13} />
+                    </a>
+                  ) : (
+                    <span className="py-1.5 px-3 rounded-md bg-zinc-900 border border-zinc-800 text-xs text-zinc-600 cursor-not-allowed flex items-center gap-1">
+                      <Lock size={12} />
+                    </span>
+                  )}
                 </div>
               </div>
-            </article>
+            </div>
           ))}
         </div>
 
-        {/* Archival Projects Index */}
-        <div className="mt-14 pt-8 editorial-border-t">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 mb-6">
+        {/* Other works strip */}
+        <div className="mt-12 p-6 rounded-xl border border-dark-800 bg-dark-900/50">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
-              <h3 className="font-serif text-xl text-ink-pure font-normal">
-                {text.archiveTitle}
-              </h3>
-              <p className="text-xs text-ink-100 mt-1">
-                {text.archiveIntro}
-              </p>
+              <h3 className="text-base font-bold text-zinc-100">{text.archiveTitle}</h3>
+              <p className="text-xs text-zinc-400 mt-0.5">{text.archiveIntro}</p>
             </div>
             <a
               href="https://github.com/valentinohrynt"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 font-mono text-xs font-bold text-ink-pure hover:text-accent-rust transition"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-300 hover:text-zinc-100 transition py-1.5 px-3 rounded-md border border-zinc-700 bg-zinc-850"
             >
-              <Github size={14} /> {text.viewGithub} <ArrowUpRight size={12} />
+              <Github size={14} /> {text.githubBtn}
             </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#DDD5C3] editorial-border">
-            {archivalWorks.map((item) => (
-              <div key={item.name} className="bg-paper-100 p-4 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-[11px] text-ink-100 mb-1">
-                    <span>INDEX</span>
-                    <span>{item.year}</span>
-                  </div>
-                  <h4 className="font-sans text-sm font-bold text-ink-pure">
-                    {item.name}
-                  </h4>
-                  <p className="text-xs text-ink-200 mt-1 leading-normal">
-                    {item.desc}
-                  </p>
-                </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {otherWorks.map((item) => (
+              <div key={item.name} className="p-3 rounded-lg border border-dark-800 bg-dark-950/60">
+                <h4 className="text-xs font-semibold text-zinc-200">{item.name}</h4>
+                <p className="text-[11px] text-zinc-400 mt-0.5 leading-normal">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Modal Dossier */}
-        {activeProject && (
+        {/* Modal */}
+        {selected && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-[2px]"
-            onClick={() => setActiveProject(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+            onClick={() => setSelected(null)}
           >
             <div
-              className="w-full max-w-2xl bg-paper-100 editorial-border p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl relative"
+              className="w-full max-w-xl rounded-xl border border-zinc-700 bg-dark-900 p-6 shadow-2xl relative max-h-[88vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex items-start justify-between pb-4 editorial-border-b">
+              <div className="flex items-start justify-between pb-4 border-b border-zinc-800">
                 <div>
-                  <div className="font-mono text-xs text-accent-rust font-bold">
-                    {activeProject.code} · {activeProject.type}
-                  </div>
-                  <h3 className="font-serif text-3xl text-ink-pure font-normal mt-1">
-                    {activeProject.title}
-                  </h3>
-                  <div className="text-xs text-ink-100 mt-0.5">
-                    {activeProject.category}
-                  </div>
+                  <span className="text-xs text-amber-400 font-medium">{selected.type}</span>
+                  <h3 className="text-xl font-bold text-zinc-100 mt-0.5">{selected.title}</h3>
+                  <p className="text-xs text-zinc-400">{selected.category}</p>
                 </div>
                 <button
                   type="button"
-                  onClick={() => setActiveProject(null)}
-                  className="p-1 text-ink-100 hover:text-ink-pure"
+                  onClick={() => setSelected(null)}
+                  className="p-1 rounded-md text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition"
                 >
-                  <X size={20} />
+                  <X size={18} />
                 </button>
               </div>
 
-              <div className="py-6 space-y-6">
+              <div className="py-5 space-y-5 text-sm">
                 <div>
-                  <div className="font-mono text-xs uppercase tracking-wider text-ink-100 mb-2">
-                    {text.modalSummary}
-                  </div>
-                  <p className="text-sm leading-relaxed text-ink-200">
-                    {activeProject.summary}
-                  </p>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">{text.modalSummary}</h4>
+                  <p className="leading-relaxed text-zinc-300">{selected.summary}</p>
                 </div>
 
                 <div>
-                  <div className="font-mono text-xs uppercase tracking-wider text-ink-100 mb-2">
-                    {text.modalInvolvement}
-                  </div>
-                  <p className="text-sm leading-relaxed text-ink-pure bg-paper-200 p-4 editorial-border">
-                    {activeProject.involvement}
-                  </p>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">{text.modalInvolvement}</h4>
+                  <p className="leading-relaxed text-zinc-300 p-3 rounded-md bg-dark-950/80 border border-zinc-800">{selected.involvement}</p>
                 </div>
 
                 <div>
-                  <div className="font-mono text-xs uppercase tracking-wider text-ink-100 mb-2">
-                    {text.modalHighlights}
-                  </div>
-                  <ul className="space-y-2">
-                    {activeProject.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-ink-200">
-                        <span className="font-mono text-accent-rust text-xs mt-0.5">—</span>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">{text.modalHighlights}</h4>
+                  <ul className="space-y-1.5">
+                    {selected.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2 text-zinc-300 text-xs sm:text-sm">
+                        <span className="text-amber-400 mt-0.5">•</span>
                         <span>{h}</span>
                       </li>
                     ))}
@@ -435,12 +365,10 @@ const Projects = ({ language = 'id' }) => {
                 </div>
 
                 <div>
-                  <div className="font-mono text-xs uppercase tracking-wider text-ink-100 mb-2">
-                    {text.modalTech}
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {activeProject.stack.map((t) => (
-                      <span key={t} className="font-mono text-xs bg-paper-200 px-2.5 py-1 editorial-border text-ink-pure">
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">{text.modalStack}</h4>
+                  <div className="flex flex-wrap gap-1.5 font-mono text-xs">
+                    {selected.stack.map((t) => (
+                      <span key={t} className="px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700 text-zinc-300">
                         {t}
                       </span>
                     ))}
@@ -448,33 +376,33 @@ const Projects = ({ language = 'id' }) => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-4 editorial-border-t">
-                <div className="flex items-center gap-3">
-                  {activeProject.live && (
+              <div className="flex items-center justify-between pt-4 border-t border-zinc-800">
+                <div className="flex items-center gap-2">
+                  {selected.live && (
                     <a
-                      href={activeProject.live}
+                      href={selected.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-mono text-xs font-bold text-accent-forest hover:underline inline-flex items-center gap-1"
+                      className="px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-500 text-xs font-medium text-white transition inline-flex items-center gap-1"
                     >
-                      {text.liveLink} <ArrowUpRight size={13} />
+                      {text.live} <ExternalLink size={13} />
                     </a>
                   )}
-                  {activeProject.github && (
+                  {selected.github && (
                     <a
-                      href={activeProject.github}
+                      href={selected.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-mono text-xs text-ink-200 hover:text-ink-pure inline-flex items-center gap-1"
+                      className="px-3 py-1.5 rounded-md bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs font-medium text-zinc-200 transition inline-flex items-center gap-1"
                     >
-                      <Github size={13} /> {text.codeLink}
+                      <Github size={13} /> {text.code}
                     </a>
                   )}
                 </div>
                 <button
                   type="button"
-                  onClick={() => setActiveProject(null)}
-                  className="font-mono text-xs text-ink-100 hover:text-ink-pure"
+                  onClick={() => setSelected(null)}
+                  className="text-xs text-zinc-400 hover:text-zinc-200 px-3 py-1.5"
                 >
                   {text.close}
                 </button>

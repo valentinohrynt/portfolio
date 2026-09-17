@@ -2,78 +2,64 @@ import React from 'react';
 
 const content = {
   id: {
-    sectionNum: 'SEKSI V',
-    label: 'ARSITEKTUR & TAKSONOMI TEKNOLOGI',
-    title: 'Spesifikasi Toolchain & Lingkungan Kerja',
-    intro: 'Daftar teknologi dan perangkat pengembangan yang dikuasai secara praktis melalui pengerjaan proyek produksi, akademik, dan eksperimen rekayasa.',
-    categories: [
+    label: 'Tech Stack',
+    title: 'Teknologi yang biasa saya pakai',
+    intro: 'Bahasa pemrograman, framework, dan tools yang pernah saya pakai langsung dalam proyek nyata atau tugas kuliah.',
+    groups: [
       {
-        title: 'Backend Systems & Server Runtimes',
-        desc: 'Fondasi logika bisnis, pengelolaan transaksi, pemodelan relasional, dan otorisasi aman.',
-        items: ['PHP 8.x', 'Laravel 11 & 12', 'Node.js', 'Express.js', 'Hono', 'RESTful API Design', 'Middleware Architecture'],
+        title: 'Backend & Server',
+        skills: ['PHP 8', 'Laravel', 'Node.js', 'Express', 'Hono', 'REST API'],
       },
       {
-        title: 'Relational & Distributed Databases',
-        desc: 'Desain skema ternormalisasi, integritas data referensial, query optimization, dan storage.',
-        items: ['MySQL', 'PostgreSQL', 'Prisma ORM', 'Drizzle ORM', 'Relational Schema Design', 'Cloudflare R2 Storage'],
+        title: 'Database & Storage',
+        skills: ['MySQL', 'PostgreSQL', 'Prisma ORM', 'Drizzle ORM', 'Cloudflare R2'],
       },
       {
-        title: 'Mobile Application Toolchain',
-        desc: 'Pengembangan aplikasi mobile native berbasis Android serta framework multi-platform.',
-        items: ['Kotlin', 'Android Jetpack', 'Jetpack Compose', 'MVVM Pattern', 'Room Database', 'Hilt DI', 'Flutter & Dart'],
+        title: 'Mobile Development',
+        skills: ['Kotlin', 'Android Jetpack', 'Jetpack Compose', 'Room DB', 'Flutter', 'Dart'],
       },
       {
-        title: 'Web Interface & Frontend Layers',
-        desc: 'Struktur tampilan responsif, interaksi komponen, dan koneksi state ke backend API.',
-        items: ['React', 'Next.js', 'TypeScript', 'JavaScript (ES6+)', 'Tailwind CSS', 'Bootstrap', 'HTML5 / Modern CSS'],
+        title: 'Frontend Web',
+        skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap'],
       },
       {
-        title: 'Development Workflow & Operations',
-        desc: 'Disiplin version control, pemeliharaan kode, pengujian otomatis, dan platform hosting.',
-        items: ['Git / GitHub', 'Linux CLI Shell', 'Postman / Curl Testing', 'Vitest', 'Cloudflare Workers', 'Netlify Edge'],
+        title: 'Tools & Workflow',
+        skills: ['Git', 'GitHub', 'Linux Terminal', 'Postman', 'Vitest', 'Cloudflare Workers'],
       },
       {
-        title: 'Data Bridging & Integrations',
-        desc: 'Penyambungan layanan pihak ketiga, webhook transaksional, dan bridging model analitik.',
-        items: ['Python', 'Flask Microservices', 'Pandas Basics', 'Midtrans Payment Gateway', 'Third-Party Webhooks', 'Resend Email API'],
+        title: 'Lainnya & Integrasi',
+        skills: ['Python', 'Flask', 'Midtrans Gateway', 'Webhooks', 'Resend API'],
       },
     ],
   },
   en: {
-    sectionNum: 'SECTION V',
-    label: 'ARCHITECTURE & TECH TAXONOMY',
-    title: 'Toolchain Specifications & Engineering Stack',
-    intro: 'Catalog of languages, runtimes, and engineering frameworks utilized across production systems and academic software delivery.',
-    categories: [
+    label: 'Tech Stack',
+    title: 'Technologies I frequently use',
+    intro: 'Programming languages, frameworks, and developer tools I have worked with on real projects and coursework.',
+    groups: [
       {
-        title: 'Backend Systems & Server Runtimes',
-        desc: 'Business logic foundation, transactional workflows, relational modeling, and secure access boundaries.',
-        items: ['PHP 8.x', 'Laravel 11 & 12', 'Node.js', 'Express.js', 'Hono', 'RESTful API Design', 'Middleware Architecture'],
+        title: 'Backend & Server',
+        skills: ['PHP 8', 'Laravel', 'Node.js', 'Express', 'Hono', 'REST API'],
       },
       {
-        title: 'Relational & Distributed Databases',
-        desc: 'Normalized schema modeling, referential integrity rules, query tuning, and object stores.',
-        items: ['MySQL', 'PostgreSQL', 'Prisma ORM', 'Drizzle ORM', 'Relational Schema Design', 'Cloudflare R2 Storage'],
+        title: 'Database & Storage',
+        skills: ['MySQL', 'PostgreSQL', 'Prisma ORM', 'Drizzle ORM', 'Cloudflare R2'],
       },
       {
-        title: 'Mobile Application Toolchain',
-        desc: 'Native Android client architecture alongside multi-platform mobile application development.',
-        items: ['Kotlin', 'Android Jetpack', 'Jetpack Compose', 'MVVM Pattern', 'Room Database', 'Hilt DI', 'Flutter & Dart'],
+        title: 'Mobile Development',
+        skills: ['Kotlin', 'Android Jetpack', 'Jetpack Compose', 'Room DB', 'Flutter', 'Dart'],
       },
       {
-        title: 'Web Interface & Frontend Layers',
-        desc: 'Clean UI component layouts, state synchronization, and accessible responsive structures.',
-        items: ['React', 'Next.js', 'TypeScript', 'JavaScript (ES6+)', 'Tailwind CSS', 'Bootstrap', 'HTML5 / Modern CSS'],
+        title: 'Frontend Web',
+        skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap'],
       },
       {
-        title: 'Development Workflow & Operations',
-        desc: 'Disciplined version control, automated unit checks, terminal tools, and edge deployments.',
-        items: ['Git / GitHub', 'Linux CLI Shell', 'Postman / Curl Testing', 'Vitest', 'Cloudflare Workers', 'Netlify Edge'],
+        title: 'Tools & Workflow',
+        skills: ['Git', 'GitHub', 'Linux Terminal', 'Postman', 'Vitest', 'Cloudflare Workers'],
       },
       {
-        title: 'Data Bridging & Integrations',
-        desc: 'Third-party integrations, transactional webhook lifecycles, and analytical service connectors.',
-        items: ['Python', 'Flask Microservices', 'Pandas Basics', 'Midtrans Payment Gateway', 'Third-Party Webhooks', 'Resend Email API'],
+        title: 'Other & Integrations',
+        skills: ['Python', 'Flask', 'Midtrans Gateway', 'Webhooks', 'Resend API'],
       },
     ],
   },
@@ -83,45 +69,23 @@ const Skills = ({ language = 'id' }) => {
   const text = content[language];
 
   return (
-    <section id="skills" className="editorial-border-b">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-4 editorial-border-b">
-          <div>
-            <div className="font-mono text-xs text-ink-100 uppercase tracking-wider mb-1">
-              {text.sectionNum} · {text.label}
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl text-ink-pure font-normal">
-              {text.title}
-            </h2>
-          </div>
-          <p className="max-w-md text-sm text-ink-100">
-            {text.intro}
-          </p>
+    <section id="skills" className="py-20 border-b border-dark-800">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-12">
+          <p className="text-xs font-mono text-amber-400/90 tracking-wide uppercase mb-1.5">{text.label}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">{text.title}</h2>
+          <p className="mt-2 text-sm text-zinc-400 max-w-xl">{text.intro}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#DDD5C3] editorial-border">
-          {text.categories.map((cat, idx) => (
-            <div key={cat.title} className="bg-paper-100 p-6 sm:p-8 flex flex-col justify-between">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {text.groups.map((group) => (
+            <div key={group.title} className="craft-card p-5 flex flex-col justify-between">
               <div>
-                <div className="font-mono text-[11px] text-accent-rust font-bold mb-2">
-                  CAT_{String(idx + 1).padStart(2, '0')}
-                </div>
-                <h3 className="font-serif text-xl text-ink-pure font-normal mb-2">
-                  {cat.title}
-                </h3>
-                <p className="text-xs text-ink-100 leading-relaxed mb-6">
-                  {cat.desc}
-                </p>
-              </div>
-
-              <div className="pt-4 editorial-border-t">
-                <div className="flex flex-wrap gap-1.5">
-                  {cat.items.map((item) => (
-                    <span
-                      key={item}
-                      className="font-mono text-xs bg-paper-200 px-2.5 py-1 editorial-border text-ink-300"
-                    >
-                      {item}
+                <h3 className="text-sm font-semibold text-zinc-200 mb-3">{group.title}</h3>
+                <div className="flex flex-wrap gap-1.5 font-mono text-xs">
+                  {group.skills.map((s) => (
+                    <span key={s} className="px-2.5 py-1 rounded bg-zinc-850 border border-zinc-800 text-zinc-300">
+                      {s}
                     </span>
                   ))}
                 </div>

@@ -4,76 +4,51 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #FCFBF7;
-  color-scheme: light;
+  background-color: #09090b;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background-color: #FCFBF7;
-  color: #22201C;
+  background-color: #09090b;
+  color: #a1a1aa;
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* Editorial Print Grid lines */
-.editorial-border-b {
-  border-bottom: 1px solid #ECE6D9;
+/* Linear/Vercel style dark card */
+.craft-card {
+  background-color: #121215;
+  border: 1px solid #27272a;
+  border-radius: 0.75rem;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-.editorial-border-r {
-  border-right: 1px solid #ECE6D9;
+.craft-card:hover {
+  border-color: #3f3f46;
+  background-color: #151518;
 }
 
-.editorial-border-t {
-  border-top: 1px solid #ECE6D9;
-}
-
-.editorial-border-l {
-  border-left: 1px solid #ECE6D9;
-}
-
-.editorial-border {
-  border: 1px solid #ECE6D9;
-}
-
-/* Subtle rule lines for newspaper feel */
-.rule-double {
-  border-top: 3px double #C7BBA3;
-}
-
-.rule-single {
-  border-top: 1px solid #DDD5C3;
-}
-
-/* Editorial tags */
-.editorial-tag {
-  font-family: "Space Mono", monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-/* Custom Scrollbar */
+/* Custom minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FCFBF7;
+  background: #09090b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DDD5C3;
+  background: #27272a;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C7BBA3;
+  background: #3f3f46;
 }

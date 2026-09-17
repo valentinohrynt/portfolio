@@ -1,128 +1,126 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const content = {
   id: {
-    sectionNum: 'SEKSI VI',
-    label: 'KREDENSIAL AKADEMIK & PROFESIONAL',
-    title: 'Pendidikan Formal, Sertifikasi & Penghargaan',
-    eduTitle: 'Pendidikan Tinggi',
-    degree: 'Sarjana Sistem Informasi (S.Kom)',
-    inst: 'Fakultas Ilmu Komputer, Universitas Jember',
-    period: '2022 — 2026 (Sedang Menempuh)',
-    gpaValue: '3,92',
-    gpaScale: 'dari skala 4,00 (IPK Kumulatif)',
-    langTitle: 'Kemahiran Bahasa',
-    langId: 'Bahasa Indonesia — Penutur Asli (Native)',
-    langEn: 'Bahasa Inggris — Kemahiran Kerja Profesional (Skor TOEFL: 530)',
-    certTitle: 'Sertifikasi Kompetensi Industri Terverifikasi',
-    certCount: '34 Sertifikat Kompetensi Tercatat di LinkedIn',
-    verifyLinkedIn: 'Verifikasi Kredensial di LinkedIn',
-    honorsTitle: 'Pencapaian & Kompetisi Rekayasa',
+    label: 'Pendidikan & Sertifikat',
+    title: 'Kuliah, sertifikasi, dan pencapaian',
+    eduTitle: 'Pendidikan Formal',
+    degree: 'S1 Sistem Informasi',
+    univ: 'Universitas Jember',
+    period: '2022 — sekarang',
+    gpa: '3,92',
+    gpaLabel: 'IPK saat ini (skala 4,00)',
+    langTitle: 'Bahasa',
+    langId: 'Bahasa Indonesia (Penutur asli)',
+    langEn: 'Bahasa Inggris (Skor TOEFL: 530)',
+    certTitle: 'Beberapa Sertifikat',
+    certCount: 'Ada 34 sertifikat yang tercatat di akun LinkedIn saya.',
+    verifyLinkedIn: 'Lihat semua di LinkedIn',
+    honorsTitle: 'Pencapaian',
     certifications: [
       {
         title: 'Dev Certified for Android',
         issuer: 'dev.cert by dev.id',
         date: 'Mei 2025',
-        domain: 'Mobile Android Engineering',
+        note: 'Sertifikasi kompetensi developer Android',
       },
       {
-        title: 'Multi-Platform App Developer Expert Learning Path',
-        issuer: 'Indosat Ooredoo Hutchison Digital Camp (IDCamp)',
+        title: 'Multi-Platform App Developer Expert',
+        issuer: 'IDCamp (Indosat Ooredoo Hutchison & Dicoding)',
         date: '2025',
-        domain: 'Flutter & Dart Expert',
+        note: 'Jalur spesialisasi Flutter dan Dart',
       },
       {
         title: 'Android Development Learning Path',
         issuer: 'Dicoding Indonesia',
         date: '2024',
-        domain: 'Kotlin, Clean Architecture, Jetpack',
+        note: 'Kotlin, Jetpack, dan Clean Architecture',
       },
       {
         title: 'Full-Stack JavaScript & Backend Development',
         issuer: 'CODEPOLITAN',
         date: '2024',
-        domain: '12 Seri Kursus Backend, Node.js & API',
+        note: 'Seri kursus Node.js, Express, dan REST API',
       },
       {
         title: 'Data, AI & Programming Foundations',
-        issuer: 'Dicoding Indonesia & freeCodeCamp',
+        issuer: 'Dicoding & freeCodeCamp',
         date: '2023 — 2024',
-        domain: 'SQL, Python Scientific & Web Design',
+        note: 'Dasar SQL, Python, dan pemrograman web',
       },
     ],
     honors: [
       {
-        title: 'Distinction Graduate — Mobile Development Track',
+        title: 'Lulusan Terbaik (Distinction) — Mobile Development',
         org: 'Bangkit Academy 2024 Batch 2 (Google, GoTo, Traveloka)',
-        desc: 'Lulus dengan predikat kelulusan tertinggi atas nilai akademik dan penyelesaian proyek.',
+        desc: 'Lulus dengan predikat nilai tertinggi di kelas mobile development.',
       },
       {
         title: 'Top 50 Product Track Capstone Project',
         org: 'Bangkit Academy 2024 Batch 2',
-        desc: 'Proyek MentalQ berhasil terpilih masuk dalam 50 besar karya terbaik dari 644 tim nasional.',
+        desc: 'Aplikasi MentalQ buatan tim kami terpilih masuk Top 50 dari total 644 tim.',
       },
       {
-        title: 'Juara 1 Lomba Desain Poster Nasional',
+        title: 'Juara 1 Lomba Desain Poster',
         org: 'Digital Campaign Competition · 2023',
-        desc: 'Penghargaan kejuaraan perancangan komunikasi visual dan arsitektur informasi terstruktur.',
+        desc: 'Juara pertama kompetisi komunikasi visual tingkat mahasiswa.',
       },
     ],
   },
   en: {
-    sectionNum: 'SECTION VI',
-    label: 'ACADEMIC & PROFESSIONAL CREDENTIALS',
-    title: 'Formal Education, Certifications & Honors',
-    eduTitle: 'Higher Education',
-    degree: 'Bachelor of Science in Information Systems',
-    inst: 'Faculty of Computer Science, University of Jember',
-    period: '2022 — 2026 (Undergraduate Candidate)',
-    gpaValue: '3.92',
-    gpaScale: 'on a 4.00 scale (Cumulative GPA)',
-    langTitle: 'Language Proficiency',
-    langId: 'Indonesian — Native Speaker',
-    langEn: 'English — Professional Working Proficiency (TOEFL Score: 530)',
-    certTitle: 'Verified Industry Certifications',
-    certCount: '34 Professional Certifications Verified on LinkedIn',
-    verifyLinkedIn: 'Verify Credentials on LinkedIn',
-    honorsTitle: 'Engineering Honors & Competition Awards',
+    label: 'Education & Credentials',
+    title: 'Studies, certifications, and achievements',
+    eduTitle: 'Formal Education',
+    degree: 'B.Sc. in Information Systems',
+    univ: 'University of Jember',
+    period: '2022 — Present',
+    gpa: '3.92',
+    gpaLabel: 'Current GPA (out of 4.00)',
+    langTitle: 'Languages',
+    langId: 'Indonesian (Native)',
+    langEn: 'English (TOEFL score: 530)',
+    certTitle: 'Selected Certifications',
+    certCount: '34 completed certifications recorded on LinkedIn.',
+    verifyLinkedIn: 'View full list on LinkedIn',
+    honorsTitle: 'Achievements',
     certifications: [
       {
         title: 'Dev Certified for Android',
         issuer: 'dev.cert by dev.id',
         date: 'May 2025',
-        domain: 'Mobile Android Engineering',
+        note: 'Android developer competence certification',
       },
       {
-        title: 'Multi-Platform App Developer Expert Learning Path',
-        issuer: 'Indosat Ooredoo Hutchison Digital Camp (IDCamp)',
+        title: 'Multi-Platform App Developer Expert',
+        issuer: 'IDCamp (Indosat Ooredoo Hutchison & Dicoding)',
         date: '2025',
-        domain: 'Flutter & Dart Expert',
+        note: 'Flutter & Dart specialization path',
       },
       {
         title: 'Android Development Learning Path',
         issuer: 'Dicoding Indonesia',
         date: '2024',
-        domain: 'Kotlin, Clean Architecture, Jetpack',
+        note: 'Kotlin, Jetpack, and Clean Architecture',
       },
       {
         title: 'Full-Stack JavaScript & Backend Development',
         issuer: 'CODEPOLITAN',
         date: '2024',
-        domain: '12 Course Certificates in Backend, Node.js & APIs',
+        note: 'Course track on Node.js, Express, and REST APIs',
       },
       {
         title: 'Data, AI & Programming Foundations',
-        issuer: 'Dicoding Indonesia & freeCodeCamp',
+        issuer: 'Dicoding & freeCodeCamp',
         date: '2023 — 2024',
-        domain: 'SQL, Python Scientific & Web Design',
+        note: 'Foundations of SQL, Python, and responsive web',
       },
     ],
     honors: [
       {
-        title: 'Distinction Graduate — Mobile Development Track',
+        title: 'Distinction Graduate — Mobile Development',
         org: 'Bangkit Academy 2024 Batch 2 (Google, GoTo, Traveloka)',
-        desc: 'Graduated with highest distinction for academic standing and capstone execution.',
+        desc: 'Graduated with highest academic standing in the Android cohort.',
       },
       {
         title: 'Top 50 Product Track Capstone Project',
@@ -130,9 +128,9 @@ const content = {
         desc: 'MentalQ was selected into the Top 50 projects out of 644 national teams.',
       },
       {
-        title: '1st Place Winner — National Poster Design',
+        title: '1st Place Winner — Poster Design',
         org: 'Digital Campaign Competition · 2023',
-        desc: 'First place recognition for structured visual communication and message design.',
+        desc: 'First place recognition in digital visual communication.',
       },
     ],
   },
@@ -142,127 +140,85 @@ const Highlights = ({ language = 'id' }) => {
   const text = content[language];
 
   return (
-    <section id="credentials" className="editorial-border-b bg-[#F9F7F1]">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-24">
-        <div className="mb-14 pb-4 editorial-border-b">
-          <div className="font-mono text-xs text-ink-100 uppercase tracking-wider mb-1">
-            {text.sectionNum} · {text.label}
-          </div>
-          <h2 className="font-serif text-3xl sm:text-4xl text-ink-pure font-normal">
-            {text.title}
-          </h2>
+    <section id="credentials" className="py-20 border-b border-dark-800">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-12">
+          <p className="text-xs font-mono text-amber-400/90 tracking-wide uppercase mb-1.5">{text.label}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">{text.title}</h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Certifications Index */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="flex items-baseline justify-between pb-3 editorial-border-b">
+        <div className="grid gap-8 md:grid-cols-12 items-start">
+          {/* Left Column: Certifications */}
+          <div className="md:col-span-7 space-y-4">
+            <div className="flex items-center justify-between pb-2 border-b border-zinc-800">
               <div>
-                <h3 className="font-serif text-2xl text-ink-pure font-normal">
-                  {text.certTitle}
-                </h3>
-                <p className="text-xs text-ink-100 mt-0.5">{text.certCount}</p>
+                <h3 className="text-base font-bold text-zinc-100">{text.certTitle}</h3>
+                <p className="text-xs text-zinc-400 mt-0.5">{text.certCount}</p>
               </div>
               <a
                 href="https://www.linkedin.com/in/valentinohariyanto"
                 target="_blank"
                 rel="noreferrer"
-                className="font-mono text-xs font-bold text-accent-rust hover:underline inline-flex items-center gap-1"
+                className="text-xs font-mono text-amber-400 hover:text-amber-300 transition flex items-center gap-1"
               >
-                LinkedIn <ArrowUpRight size={12} />
+                LinkedIn <ExternalLink size={12} />
               </a>
             </div>
 
-            <div className="divide-y divide-[#DDD5C3] editorial-border bg-paper-100">
+            <div className="space-y-2.5">
               {text.certifications.map((c) => (
-                <div key={c.title} className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                <div key={c.title} className="craft-card p-4 flex items-start justify-between gap-3">
                   <div>
-                    <div className="font-mono text-[10px] text-accent-rust uppercase font-bold tracking-wider">
-                      {c.domain}
-                    </div>
-                    <h4 className="font-sans text-sm font-bold text-ink-pure mt-0.5">
-                      {c.title}
-                    </h4>
-                    <p className="text-xs text-ink-100 mt-0.5">{c.issuer}</p>
+                    <h4 className="text-sm font-semibold text-zinc-200">{c.title}</h4>
+                    <p className="text-xs text-zinc-400 mt-0.5">{c.issuer}</p>
+                    <p className="text-xs text-zinc-400 mt-1">{c.note}</p>
                   </div>
-                  <div className="font-mono text-xs text-ink-100 shrink-0">
-                    {c.date}
-                  </div>
+                  <span className="font-mono text-xs text-zinc-400 shrink-0">{c.date}</span>
                 </div>
               ))}
             </div>
 
-            {/* Honors Block */}
+            {/* Honors */}
             <div className="pt-6">
-              <h3 className="font-serif text-2xl text-ink-pure font-normal mb-4 pb-3 editorial-border-b">
-                {text.honorsTitle}
-              </h3>
-
-              <div className="space-y-3">
+              <h3 className="text-base font-bold text-zinc-100 mb-3 pb-2 border-b border-zinc-800">{text.honorsTitle}</h3>
+              <div className="space-y-2.5">
                 {text.honors.map((h) => (
-                  <div key={h.title} className="bg-paper-100 editorial-border p-5">
-                    <div className="font-serif text-lg text-ink-pure font-normal">
-                      {h.title}
-                    </div>
-                    <div className="font-mono text-xs text-accent-forest font-semibold mt-0.5">
-                      {h.org}
-                    </div>
-                    <p className="text-xs text-ink-200 mt-2 leading-relaxed">
-                      {h.desc}
-                    </p>
+                  <div key={h.title} className="craft-card p-4">
+                    <h4 className="text-sm font-semibold text-zinc-200">{h.title}</h4>
+                    <div className="text-xs font-mono text-amber-400/90 mt-0.5">{h.org}</div>
+                    <p className="text-xs text-zinc-400 mt-1 leading-relaxed">{h.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Right Column: Academic & Languages */}
-          <div className="lg:col-span-5 space-y-8">
-            {/* Degree Card */}
-            <div className="bg-paper-100 editorial-border p-6 sm:p-8">
-              <div className="font-mono text-xs uppercase tracking-wider text-ink-100 mb-2">
-                {text.eduTitle}
-              </div>
-              <h4 className="font-serif text-2xl text-ink-pure font-normal">
-                {text.degree}
-              </h4>
-              <p className="text-sm font-medium text-ink-200 mt-1">
-                {text.inst}
-              </p>
-              <p className="font-mono text-xs text-ink-100 mt-1">
-                {text.period}
-              </p>
+          {/* Right Column: Education & Languages */}
+          <div className="md:col-span-5 space-y-4">
+            <div className="craft-card p-6">
+              <span className="text-xs font-mono text-amber-400/90 uppercase tracking-wide">{text.eduTitle}</span>
+              <h4 className="text-lg font-bold text-zinc-100 mt-1">{text.degree}</h4>
+              <p className="text-sm text-zinc-300 mt-0.5">{text.univ}</p>
+              <p className="font-mono text-xs text-zinc-400 mt-1">{text.period}</p>
 
-              <div className="mt-6 pt-5 editorial-border-t">
-                <div className="font-serif text-4xl text-ink-pure">
-                  {text.gpaValue}
-                </div>
-                <div className="font-mono text-xs text-ink-100 mt-1">
-                  {text.gpaScale}
-                </div>
+              <div className="mt-5 pt-4 border-t border-zinc-800">
+                <div className="text-2xl font-bold font-mono text-zinc-100">{text.gpa}</div>
+                <div className="text-xs text-zinc-400 mt-0.5">{text.gpaLabel}</div>
               </div>
             </div>
 
-            {/* Languages */}
-            <div className="bg-paper-100 editorial-border p-6 sm:p-8">
-              <div className="font-mono text-xs uppercase tracking-wider text-ink-100 mb-3">
-                {text.langTitle}
-              </div>
-              <div className="space-y-3 text-sm text-ink-200 divide-y divide-[#DDD5C3]">
-                <div className="pt-2">
-                  <div className="font-sans font-bold text-ink-pure">Bahasa Indonesia</div>
-                  <div className="text-xs text-ink-100">Penutur Asli (Native Speaker)</div>
+            <div className="craft-card p-6">
+              <span className="text-xs font-mono text-amber-400/90 uppercase tracking-wide">{text.langTitle}</span>
+              <div className="space-y-3 mt-3 text-sm text-zinc-300 divide-y divide-zinc-800/80">
+                <div className="pt-1">
+                  <div className="font-medium text-zinc-200">Bahasa Indonesia</div>
+                  <div className="text-xs text-zinc-400">Penutur asli</div>
                 </div>
-                <div className="pt-3">
-                  <div className="font-sans font-bold text-ink-pure">English</div>
-                  <div className="text-xs text-ink-100">Professional Working Proficiency · TOEFL 530</div>
+                <div className="pt-2.5">
+                  <div className="font-medium text-zinc-200">Bahasa Inggris</div>
+                  <div className="text-xs text-zinc-400">Kemampuan kerja pasif/aktif · TOEFL 530</div>
                 </div>
               </div>
-            </div>
-
-            {/* Statement of Conduct */}
-            <div className="bg-[#EFEAE0] editorial-border p-5 text-xs font-mono text-ink-200 leading-relaxed">
-              <span className="font-bold text-ink-pure">NOTE ON ENGINEERING:</span> Seluruh pencatatan pengalaman dan portofolio berbasis implementasi nyata dari rancangan database relasional, logika backend teruji, hingga deploy produksi yang dapat diverifikasi.
             </div>
           </div>
         </div>

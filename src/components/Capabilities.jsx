@@ -1,65 +1,64 @@
 import React from 'react';
+import { Server, Smartphone, Globe, Layers } from 'lucide-react';
 
 const content = {
   id: {
-    sectionNum: 'SEKSI II',
-    label: 'DISIPLIN & PRAKTIK REKAYASA',
-    title: 'Kapabilitas Teknis Sepanjang Siklus Perangkat Lunak',
+    label: 'Keahlian & Fokus',
+    title: 'Hal-hal yang biasa saya kerjakan',
     items: [
       {
-        num: '01',
-        title: 'Backend Systems & API Architecture',
-        desc: 'Membangun arsitektur backend berbasis PHP (Laravel) dan Node.js dengan rancangan database relasional yang ternormalisasi (MySQL & PostgreSQL), endpoint RESTful yang efisien, dan tata kelola transaksi yang konsisten.',
-        tags: ['Laravel 11/12', 'PHP 8.x', 'Node.js', 'REST API', 'MySQL', 'PostgreSQL'],
+        icon: Server,
+        title: 'Backend & REST API',
+        desc: 'Bikin service dan REST API pakai Laravel atau Node.js. Biasanya ngurus database relasional (MySQL/PostgreSQL), sistem login, hak akses user, sampai integrasi payment gateway.',
+        tools: ['PHP / Laravel', 'Node.js', 'Express', 'MySQL', 'PostgreSQL'],
       },
       {
-        num: '02',
-        title: 'Mobile Application Engineering',
-        desc: 'Rekayasa aplikasi mobile native menggunakan Kotlin dan Jetpack Compose dengan arsitektur MVVM, dependency injection (Hilt), Room database untuk offline caching, serta aplikasi cross-platform dengan Flutter.',
-        tags: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Room DB', 'Flutter', 'Dart'],
+        icon: Smartphone,
+        title: 'Aplikasi Android & Flutter',
+        desc: 'Bikin aplikasi Android native pakai Kotlin dan Jetpack Compose dengan arsitektur MVVM. Buat kebutuhan cross-platform, saya biasa pakai Flutter dan Dart.',
+        tools: ['Kotlin', 'Jetpack Compose', 'Room DB', 'Flutter', 'Dart'],
       },
       {
-        num: '03',
-        title: 'Web Interfaces & Data Integration',
-        desc: 'Menerapkan antarmuka web yang rapi dan terukur dengan React, Tailwind CSS, dan Next.js, menghubungkan frontend secara seamless ke data layer, webhook pihak ketiga, serta payment checkout flow.',
-        tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Midtrans Gateway'],
+        icon: Globe,
+        title: 'Frontend Web',
+        desc: 'Bikin tampilan web responsif yang nyaman dipakai dengan React, Next.js, atau template Blade Laravel, dipadu Tailwind CSS buat styling.',
+        tools: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
       },
       {
-        num: '04',
-        title: 'Refining, Testing & Lifecycle Operations',
-        desc: 'Pendekatan rekayasa yang disiplin: penelusuran akar masalah (root cause debugging), version control terstruktur melalui Git/GitHub, pengujian unit, serta implementasi deployment pada edge environment.',
-        tags: ['Git / GitHub', 'Vitest', 'Linux CLI', 'Cloudflare Workers', 'Netlify'],
+        icon: Layers,
+        title: 'Debugging & Deployment',
+        desc: 'Ngecek dan benerin bug secara teliti, ngatur version control pakai Git, sampai deploy aplikasi web ke platform cloud atau hosting.',
+        tools: ['Git / GitHub', 'Linux CLI', 'Cloudflare Workers', 'Netlify'],
       },
     ],
   },
   en: {
-    sectionNum: 'SECTION II',
-    label: 'ENGINEERING DISCIPLINES',
-    title: 'Technical Capabilities Across the Software Lifecycle',
+    label: 'Capabilities',
+    title: 'What I regularly work on',
     items: [
       {
-        num: '01',
-        title: 'Backend Systems & API Architecture',
-        desc: 'Developing robust backend services in PHP (Laravel) and Node.js with normalized relational schemas (MySQL & PostgreSQL), clean RESTful contracts, and atomic transaction handling.',
-        tags: ['Laravel 11/12', 'PHP 8.x', 'Node.js', 'REST API', 'MySQL', 'PostgreSQL'],
+        icon: Server,
+        title: 'Backend & REST APIs',
+        desc: 'Building services and REST APIs with Laravel or Node.js. Dealing with relational databases (MySQL/PostgreSQL), user auth, role access, and payment gateways.',
+        tools: ['PHP / Laravel', 'Node.js', 'Express', 'MySQL', 'PostgreSQL'],
       },
       {
-        num: '02',
-        title: 'Mobile Application Engineering',
-        desc: 'Engineering native Android applications with Kotlin and modern Jetpack Compose following MVVM architecture, Room offline persistence, and cross-platform apps via Flutter.',
-        tags: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Room DB', 'Flutter', 'Dart'],
+        icon: Smartphone,
+        title: 'Android & Flutter Apps',
+        desc: 'Developing native Android apps using Kotlin and Jetpack Compose with MVVM architecture. For cross-platform needs, I use Flutter and Dart.',
+        tools: ['Kotlin', 'Jetpack Compose', 'Room DB', 'Flutter', 'Dart'],
       },
       {
-        num: '03',
-        title: 'Web Interfaces & Data Integration',
-        desc: 'Crafting responsive, accessible web interfaces using React, Tailwind CSS, and Next.js, securely connecting frontend state to database schemas and third-party payment gateways.',
-        tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Midtrans Gateway'],
+        icon: Globe,
+        title: 'Web Frontend',
+        desc: 'Crafting responsive, clean web interfaces using React, Next.js, or Laravel Blade, styled with Tailwind CSS.',
+        tools: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
       },
       {
-        num: '04',
-        title: 'Refining, Testing & Lifecycle Operations',
-        desc: 'Disciplined engineering practices: root-cause error diagnosis, organized Git branching workflows, automated testing, and zero-fuss edge runtime deployments.',
-        tags: ['Git / GitHub', 'Vitest', 'Linux CLI', 'Cloudflare Workers', 'Netlify'],
+        icon: Layers,
+        title: 'Debugging & Deployment',
+        desc: 'Tracking down bugs systematically, keeping Git commits organized, and deploying web applications to cloud or hosting platforms.',
+        tools: ['Git / GitHub', 'Linux CLI', 'Cloudflare Workers', 'Netlify'],
       },
     ],
   },
@@ -69,43 +68,38 @@ const Capabilities = ({ language = 'id' }) => {
   const text = content[language];
 
   return (
-    <section className="editorial-border-b bg-[#F9F7F1]">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14 pb-4 editorial-border-b">
-          <div>
-            <div className="font-mono text-xs text-ink-100 uppercase tracking-wider mb-1">
-              {text.sectionNum} · {text.label}
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl text-ink-pure font-normal">
-              {text.title}
-            </h2>
-          </div>
+    <section className="py-20 border-b border-dark-800">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-12">
+          <p className="text-xs font-mono text-amber-400/90 tracking-wide uppercase mb-1.5">{text.label}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">{text.title}</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#DDD5C3] editorial-border">
-          {text.items.map((item) => (
-            <div key={item.num} className="bg-paper-100 p-8 sm:p-10 flex flex-col justify-between">
-              <div>
-                <div className="font-mono text-xs text-accent-rust font-bold mb-4">
-                  [{item.num}]
+        <div className="grid gap-4 sm:grid-cols-2">
+          {text.items.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} className="craft-card p-6 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 rounded-md bg-zinc-800/80 text-amber-400 border border-zinc-700/60">
+                      <Icon size={18} />
+                    </div>
+                    <h3 className="text-base font-semibold text-zinc-100">{item.title}</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-zinc-400">{item.desc}</p>
                 </div>
-                <h3 className="font-serif text-2xl text-ink-pure font-normal mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-ink-200">
-                  {item.desc}
-                </p>
-              </div>
 
-              <div className="mt-8 pt-6 editorial-border-t">
-                <div className="flex flex-wrap gap-x-3 gap-y-1.5 font-mono text-[11px] text-ink-100">
-                  {item.tags.map((t) => (
-                    <span key={t}>#{t}</span>
+                <div className="mt-5 pt-4 border-t border-zinc-800/80 flex flex-wrap gap-1.5 font-mono text-xs text-zinc-400">
+                  {item.tools.map((t) => (
+                    <span key={t} className="px-2 py-0.5 rounded bg-zinc-800/50 border border-zinc-800 text-zinc-300">
+                      {t}
+                    </span>
                   ))}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

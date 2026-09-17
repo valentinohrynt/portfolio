@@ -1,172 +1,162 @@
 import React from 'react';
+import { Calendar, MapPin } from 'lucide-react';
 
 const content = {
   id: {
-    sectionNum: 'SEKSI IV',
-    label: 'REKAM JEJAK & PENGALAMAN KERJA',
-    title: 'Pengalaman Industri, Pelatihan Terpilih & Organisasi',
-    internshipLabel: 'PENGALAMAN INDUSTRI RESMI',
-    internshipRole: 'Software Engineer Intern (PKL)',
-    company: 'PT Telkom Indonesia',
-    location: 'Jember, Jawa Timur',
-    period: 'September 2025 — Oktober 2025',
-    bullets: [
-      'Merancang arsitektur basis data relasional MySQL untuk TRACER, sistem enterprise internal pengelolaan aset dan pemeliharaan alat operasional Telkom area Jember.',
-      'Mengembangkan backend dan RESTful API TRACER dengan PHP / Laravel 12, meliputi otorisasi peran berjenjang, manajemen log inventaris, dan validasi data terintegrasi.',
-      'Membangun antarmuka web interaktif TRACER menggunakan React, Vite, dan Tailwind CSS, menyelaraskan state UI secara real-time dengan response API backend.',
-      'Merancang basis data dan modul backend Laravel untuk VANTAGE yang memproses data prospek pelanggan IndiBiz serta pemetaan ODP secara komprehensif.',
-      'Mengintegrasikan model microservice machine learning berbasis Python / Flask untuk analisis churn prediction, usage forecasting, dan segmentasi pelanggan.',
-    ],
-    stackLabel: 'Toolchain Utama:',
-    fellowshipsTitle: 'Program Pengembangan & Akselerasi',
-    fellowships: [
+    label: 'Pengalaman & Riwayat',
+    title: 'Pengalaman magang, program intensif & organisasi',
+    internship: {
+      role: 'Software Engineer Intern',
+      company: 'PT Telkom Indonesia',
+      location: 'Jember, Jawa Timur',
+      period: 'Sep 2025 — Okt 2025',
+      points: [
+        'Merancang dan bikin database MySQL untuk TRACER, sistem internal Telkom Jember buat kelola dan catat inventaris peralatan operasional.',
+        'Bikin backend dan REST API TRACER pakai PHP dan Laravel 12, termasuk sistem login, hak akses pengguna, dan riwayat mutasi barang.',
+        'Bikin tampilan web TRACER yang responsif pakai React, Vite, dan Tailwind CSS, lalu menyambungkannya ke API backend.',
+        'Merancang database dan backend Laravel untuk VANTAGE yang dipakai mencatat data prospek pelanggan IndiBiz dan pemetaan lokasi ODP.',
+        'Menghubungkan layanan machine learning berbasis Python / Flask buat analisis perkiraan penggunaan kuota dan churn pelanggan.',
+      ],
+      tools: ['PHP', 'Laravel 12', 'MySQL', 'React', 'Vite', 'Tailwind CSS', 'Python / Flask'],
+    },
+    programsTitle: 'Program pelatihan yang pernah diikuti',
+    programs: [
       {
-        title: 'Bangkit Academy 2024 Batch 2 — Mobile Development',
+        name: 'Bangkit Academy 2024 — Mobile Development',
         organizer: 'Google, Tokopedia, Gojek & Traveloka',
-        period: 'September 2024 — Januari 2025',
-        desc: 'Kurikulum intensif Android native dengan Kotlin, architecture pattern, dan machine learning implementation. Lulus dengan predikat Distinction dan capstone MentalQ terpilih sebagai Top 50 Product Track dari 644 tim nasional.',
+        period: 'Sep 2024 — Jan 2025',
+        desc: 'Fokus belajar Android native pakai Kotlin dan Clean Architecture. Lulus dengan predikat Distinction, dan aplikasi capstone tim saya (MentalQ) tembus Top 50 dari 644 tim se-Indonesia.',
         tags: ['Kotlin', 'Android Jetpack', 'Clean Architecture', 'Hilt DI'],
       },
       {
-        title: 'Indosat Ooredoo Hutchison Digital Camp (IDCamp)',
+        name: 'Indosat Ooredoo Hutchison Digital Camp (IDCamp)',
         organizer: 'Indosat Ooredoo Hutchison & Dicoding',
-        period: 'September 2024 — Juni 2025',
-        desc: 'Jalur spesialisasi Multi-Platform App Developer dari tingkat dasar hingga kelas Expert, menguasai rekayasa aplikasi mobile modern berbasis Flutter dan Dart.',
+        period: 'Sep 2024 — Jun 2025',
+        desc: 'Menyelesaikan alur belajar Multi-Platform App Developer dari awal sampai kelas Expert. Di sini saya banyak mendalami Flutter dan Dart untuk bikin aplikasi cross-platform.',
         tags: ['Flutter', 'Dart', 'State Management', 'Clean Code'],
       },
     ],
-    orgTitle: 'Kepemimpinan & Organisasi Mahasiswa',
-    orgRole: 'Staf Hubungan Masyarakat (HUMAS)',
-    orgName: 'HIMASIF (Himpunan Mahasiswa Sistem Informasi) — Universitas Jember',
-    orgPeriod: 'Oktober 2022 — Agustus 2023',
-    orgBullets: [
-      'Menghubungi serta mengoordinasikan akademisi dan praktisi teknologi untuk menjadi narasumber pelatihan dan seminar IT regional.',
-      'Menyusun wireframe materi publikasi dan tata kelola alur informasi kegiatan untuk ratusan peserta.',
+    orgTitle: 'Pengalaman di kampus',
+    orgRole: 'Staf Humas',
+    orgName: 'HIMASIF — Universitas Jember',
+    orgPeriod: 'Okt 2022 — Agu 2023',
+    orgPoints: [
+      'Menghubungi dan mengoordinasikan pemateri dari kalangan dosen dan praktisi industri buat acara seminar serta workshop IT kampus.',
+      'Menyusun materi publikasi kegiatan di media sosial dan mengelola alur informasi bagi peserta kegiatan.',
     ],
   },
   en: {
-    sectionNum: 'SECTION IV',
-    label: 'EXPERIENCE & TRACK RECORD',
-    title: 'Industry Engineering, Specialized Fellowships & Leadership',
-    internshipLabel: 'FORMAL INDUSTRY ATTACHMENT',
-    internshipRole: 'Software Engineer Intern',
-    company: 'PT Telkom Indonesia',
-    location: 'Jember, East Java',
-    period: 'September 2025 — October 2025',
-    bullets: [
-      'Designed normalized MySQL relational schemas for TRACER, an internal enterprise platform for Telkom Jember operational asset and inventory tracking.',
-      'Engineered Laravel 12 backend services and REST APIs, enforcing role-based access control, transaction audits, and secure request validation.',
-      'Developed responsive client web interfaces using React, Vite, and Tailwind CSS, wiring state layers directly to backend API contracts.',
-      'Modeled relational schemas and backend logic for VANTAGE, processing B2B IndiBiz leads and geographic ODP infrastructure mappings.',
-      'Integrated auxiliary Python / Flask microservices for predictive churn analytics, capacity forecasting, and customer value segmentation.',
-    ],
-    stackLabel: 'Core Toolchain:',
-    fellowshipsTitle: 'Selective Acceleration Programs',
-    fellowships: [
+    label: 'Experience & Background',
+    title: 'Internship, acceleration programs & student leadership',
+    internship: {
+      role: 'Software Engineer Intern',
+      company: 'PT Telkom Indonesia',
+      location: 'Jember, East Java',
+      period: 'Sep 2025 — Oct 2025',
+      points: [
+        'Designed normalized MySQL schemas for TRACER, an internal system for Telkom Jember equipment tracking and asset management.',
+        'Developed Laravel 12 backend services and REST APIs, handling user roles, audit trails, and input validation.',
+        'Built responsive web interfaces with React, Vite, and Tailwind CSS, wiring frontend views directly to backend endpoints.',
+        'Designed database schemas and backend logic for VANTAGE, handling B2B IndiBiz leads and ODP network infrastructure data.',
+        'Connected auxiliary Python / Flask microservices for predictive churn analytics and customer usage forecasting.',
+      ],
+      tools: ['PHP', 'Laravel 12', 'MySQL', 'React', 'Vite', 'Tailwind CSS', 'Python / Flask'],
+    },
+    programsTitle: 'Intensive learning paths',
+    programs: [
       {
-        title: 'Bangkit Academy 2024 Batch 2 — Mobile Development',
+        name: 'Bangkit Academy 2024 — Mobile Development',
         organizer: 'Google, Tokopedia, Gojek & Traveloka',
-        period: 'September 2024 — January 2025',
-        desc: 'Rigorous Android native curriculum covering Kotlin, architecture patterns, and ML integration. Graduated with Distinction; capstone MentalQ was named Top 50 Product Track among 644 national teams.',
+        period: 'Sep 2024 — Jan 2025',
+        desc: 'Native Android track with Kotlin and Clean Architecture. Graduated with Distinction, and our capstone app (MentalQ) made it into the national Top 50 out of 644 teams.',
         tags: ['Kotlin', 'Android Jetpack', 'Clean Architecture', 'Hilt DI'],
       },
       {
-        title: 'Indosat Ooredoo Hutchison Digital Camp (IDCamp)',
+        name: 'Indosat Ooredoo Hutchison Digital Camp (IDCamp)',
         organizer: 'Indosat Ooredoo Hutchison & Dicoding',
-        period: 'September 2024 — June 2025',
-        desc: 'Multi-Platform App Developer track through the Expert Level, mastering scalable cross-platform architecture with Flutter and Dart.',
+        period: 'Sep 2024 — Jun 2025',
+        desc: 'Completed the Multi-Platform App Developer track through the Expert level, building mobile apps with Flutter and Dart.',
         tags: ['Flutter', 'Dart', 'State Management', 'Clean Code'],
       },
     ],
-    orgTitle: 'Student Leadership & Community',
+    orgTitle: 'Campus activity',
     orgRole: 'Public Relations Staff',
-    orgName: 'HIMASIF (Information Systems Student Association) — University of Jember',
-    orgPeriod: 'October 2022 — August 2023',
-    orgBullets: [
-      'Engaged external technical speakers and academic lecturers for student developer workshops and competitive programming sessions.',
-      'Coordinated visual communication layouts and published operational briefings to hundreds of participants.',
+    orgName: 'HIMASIF — University of Jember',
+    orgPeriod: 'Oct 2022 — Aug 2023',
+    orgPoints: [
+      'Liaised with external technical speakers and academic lecturers for student workshops and IT seminars.',
+      'Prepared visual announcements and handled attendee communications across student events.',
     ],
   },
 };
 
 const Experience = ({ language = 'id' }) => {
   const text = content[language];
+  const intern = text.internship;
 
   return (
-    <section id="experience" className="editorial-border-b bg-[#F9F7F1]">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-24">
-        <div className="mb-14 pb-4 editorial-border-b">
-          <div className="font-mono text-xs text-ink-100 uppercase tracking-wider mb-1">
-            {text.sectionNum} · {text.label}
-          </div>
-          <h2 className="font-serif text-3xl sm:text-4xl text-ink-pure font-normal">
-            {text.title}
-          </h2>
+    <section id="experience" className="py-20 border-b border-dark-800">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-12">
+          <p className="text-xs font-mono text-amber-400/90 tracking-wide uppercase mb-1.5">{text.label}</p>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">{text.title}</h2>
         </div>
 
-        {/* Telkom Industrial Experience Block */}
-        <div className="bg-paper-100 editorial-border p-8 sm:p-10 mb-12">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-6 editorial-border-b">
+        {/* Telkom Internship */}
+        <div className="craft-card p-6 sm:p-8 mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 pb-5 border-b border-zinc-800">
             <div>
-              <div className="font-mono text-xs text-accent-rust font-bold tracking-wider mb-1">
-                {text.internshipLabel}
-              </div>
-              <h3 className="font-serif text-2xl sm:text-3xl text-ink-pure font-normal">
-                {text.internshipRole}
-              </h3>
-              <div className="text-sm font-medium text-ink-300 mt-1">
-                {text.company} · <span className="text-ink-100">{text.location}</span>
-              </div>
+              <span className="text-xs font-mono text-amber-400/90 uppercase tracking-wide">Magang Industri</span>
+              <h3 className="text-xl font-bold text-zinc-100 mt-0.5">{intern.role}</h3>
+              <p className="text-sm text-zinc-300 font-medium mt-0.5">{intern.company}</p>
             </div>
-            <div className="font-mono text-xs text-ink-100">
-              {text.period}
+            <div className="flex flex-col sm:items-end text-xs font-mono text-zinc-400 gap-1 mt-1 sm:mt-0">
+              <span className="flex items-center gap-1.5">
+                <Calendar size={13} className="text-zinc-500" /> {intern.period}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <MapPin size={13} className="text-zinc-500" /> {intern.location}
+              </span>
             </div>
           </div>
 
-          <div className="py-6 space-y-3">
-            {text.bullets.map((b, i) => (
-              <div key={i} className="flex items-start gap-3 text-sm leading-relaxed text-ink-200">
-                <span className="font-mono text-xs text-accent-forest font-bold mt-0.5">§</span>
-                <span>{b}</span>
+          <div className="py-5 space-y-2.5">
+            {intern.points.map((pt, i) => (
+              <div key={i} className="flex items-start gap-2.5 text-sm text-zinc-300 leading-relaxed">
+                <span className="text-amber-400 mt-0.5 text-xs font-mono">→</span>
+                <span>{pt}</span>
               </div>
             ))}
           </div>
 
-          <div className="pt-5 editorial-border-t flex flex-wrap items-center gap-2">
-            <span className="font-mono text-xs text-ink-100 mr-2">{text.stackLabel}</span>
-            {['PHP 8.x', 'Laravel 12', 'MySQL', 'React', 'Vite', 'Tailwind CSS', 'Python/Flask Microservice'].map((t) => (
-              <span key={t} className="font-mono text-xs bg-paper-200 px-2.5 py-0.5 editorial-border text-ink-pure">
+          <div className="pt-4 border-t border-zinc-800 flex flex-wrap items-center gap-1.5 font-mono text-xs">
+            <span className="text-zinc-400 mr-1 text-xs">Stack:</span>
+            {intern.tools.map((t) => (
+              <span key={t} className="px-2 py-0.5 rounded bg-zinc-850 border border-zinc-800 text-zinc-300">
                 {t}
               </span>
             ))}
           </div>
         </div>
 
-        {/* Fellowships Two-Column */}
-        <div className="mb-12">
-          <div className="font-mono text-xs text-ink-100 uppercase tracking-wider mb-4">
-            {text.fellowshipsTitle}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#DDD5C3] editorial-border">
-            {text.fellowships.map((f) => (
-              <div key={f.title} className="bg-paper-100 p-6 sm:p-8 flex flex-col justify-between">
+        {/* Programs */}
+        <div className="mb-8">
+          <h3 className="text-sm font-mono text-zinc-400 uppercase tracking-wider mb-4">{text.programsTitle}</h3>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {text.programs.map((p) => (
+              <div key={p.name} className="craft-card p-6 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between font-mono text-[11px] text-ink-100 mb-2">
-                    <span>{f.organizer}</span>
-                    <span>{f.period}</span>
+                  <div className="flex items-center justify-between text-xs font-mono text-zinc-400 mb-2">
+                    <span>{p.organizer}</span>
+                    <span>{p.period}</span>
                   </div>
-                  <h4 className="font-serif text-xl text-ink-pure font-normal mb-2">
-                    {f.title}
-                  </h4>
-                  <p className="text-xs leading-relaxed text-ink-200">
-                    {f.desc}
-                  </p>
+                  <h4 className="text-base font-bold text-zinc-100 mb-2">{p.name}</h4>
+                  <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">{p.desc}</p>
                 </div>
-                <div className="mt-6 pt-4 editorial-border-t flex flex-wrap gap-1.5">
-                  {f.tags.map((t) => (
-                    <span key={t} className="font-mono text-[11px] text-ink-100">
-                      #{t}
+                <div className="mt-5 pt-4 border-t border-zinc-800 flex flex-wrap gap-1.5 font-mono text-xs text-zinc-400">
+                  {p.tags.map((tag) => (
+                    <span key={tag} className="px-2 py-0.5 rounded bg-zinc-850 border border-zinc-800 text-zinc-300">
+                      {tag}
                     </span>
                   ))}
                 </div>
@@ -175,26 +165,20 @@ const Experience = ({ language = 'id' }) => {
           </div>
         </div>
 
-        {/* Student Leadership */}
-        <div className="bg-paper-100 editorial-border p-6 sm:p-8">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4 pb-3 editorial-border-b">
+        {/* Organization */}
+        <div className="craft-card p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4 pb-3 border-b border-zinc-800">
             <div>
-              <div className="font-mono text-xs text-ink-100 uppercase tracking-wider mb-1">
-                {text.orgTitle}
-              </div>
-              <h4 className="font-serif text-lg text-ink-pure font-normal">
-                {text.orgRole} · <span className="text-ink-200 text-base">{text.orgName}</span>
-              </h4>
+              <span className="text-xs font-mono text-zinc-400 uppercase tracking-wide">{text.orgTitle}</span>
+              <h4 className="text-base font-bold text-zinc-100 mt-0.5">{text.orgRole} · {text.orgName}</h4>
             </div>
-            <div className="font-mono text-xs text-ink-100">
-              {text.orgPeriod}
-            </div>
+            <span className="text-xs font-mono text-zinc-400">{text.orgPeriod}</span>
           </div>
           <div className="space-y-2">
-            {text.orgBullets.map((b, i) => (
-              <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink-200">
-                <span className="font-mono text-accent-rust">—</span>
-                <span>{b}</span>
+            {text.orgPoints.map((pt, i) => (
+              <div key={i} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300">
+                <span className="text-zinc-500 mt-0.5">•</span>
+                <span>{pt}</span>
               </div>
             ))}
           </div>
