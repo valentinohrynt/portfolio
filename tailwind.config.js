@@ -4,37 +4,40 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html"
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        serif: ['Newsreader', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+        mono: ['"Space Mono"', 'monospace'],
       },
       colors: {
-        brand: {
-          50: '#ecfdf5',
-          100: '#d1fae5',
-          200: '#a7f3d0',
-          300: '#6ee7b7',
-          400: '#34d399',
-          500: '#10b981',
-          600: '#059669',
-          700: '#047857',
-          800: '#065f46',
-          900: '#064e3b',
+        paper: {
+          50: '#FFFFFF',
+          100: '#FCFBF7',
+          200: '#F5F2EB',
+          300: '#ECE6D9',
+          400: '#DDD5C3',
+          500: '#C7BBA3',
+          800: '#4A4437',
+          900: '#2A261E',
         },
-        slate: {
-          850: '#121824',
-          900: '#0c111a',
-          950: '#070a0f',
+        ink: {
+          50: '#8A8477',
+          100: '#696459',
+          200: '#48443C',
+          300: '#322F29',
+          400: '#22201C',
+          500: '#141310',
+          pure: '#0C0B0A',
+        },
+        accent: {
+          rust: '#A8422B',
+          forest: '#2D5A43',
+          amber: '#B46E14',
+          indigo: '#324765',
         }
       },
-      boxShadow: {
-        'eng': '0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4)',
-        'eng-card': '0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05)',
-        'eng-card-hover': '0 10px 30px -4px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(16, 185, 129, 0.25)',
-      }
     },
   },
   plugins: [],

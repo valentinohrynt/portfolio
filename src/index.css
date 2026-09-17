@@ -4,16 +4,16 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #070a0f;
-  color-scheme: dark;
+  background-color: #FCFBF7;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
-  background-color: #070a0f;
-  color: #94a3b8;
+  background-color: #FCFBF7;
+  color: #22201C;
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -23,72 +23,57 @@ body {
   box-sizing: border-box;
 }
 
-::selection {
-  background: rgba(16, 185, 129, 0.25);
-  color: #34d399;
+/* Editorial Print Grid lines */
+.editorial-border-b {
+  border-bottom: 1px solid #ECE6D9;
 }
 
-/* Subtle architectural engineer background */
-.bg-blueprint-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 32px 32px;
+.editorial-border-r {
+  border-right: 1px solid #ECE6D9;
 }
 
-.eng-card {
-  background: rgba(18, 24, 36, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+.editorial-border-t {
+  border-top: 1px solid #ECE6D9;
 }
 
-.eng-card:hover {
-  border-color: rgba(16, 185, 129, 0.3);
-  background: rgba(18, 24, 36, 0.9);
-  transform: translateY(-2px);
+.editorial-border-l {
+  border-left: 1px solid #ECE6D9;
 }
 
-.eng-badge {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.02em;
+.editorial-border {
+  border: 1px solid #ECE6D9;
 }
 
-.code-pill {
-  font-family: "JetBrains Mono", monospace;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+/* Subtle rule lines for newspaper feel */
+.rule-double {
+  border-top: 3px double #C7BBA3;
 }
 
-.code-pill:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.08);
+.rule-single {
+  border-top: 1px solid #DDD5C3;
+}
+
+/* Editorial tags */
+.editorial-tag {
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #070a0f;
+  background: #FCFBF7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: #DDD5C3;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
-}
-
-/* Modal styling */
-.modal-enter {
-  animation: fadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
+  background: #C7BBA3;
 }
