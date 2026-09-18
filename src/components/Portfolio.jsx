@@ -33,7 +33,7 @@ const copy = {
     contactMe: 'Hubungi via email',
     aboutTitle: 'Sedikit cerita tentang saya',
     aboutP1:
-      'Saya suka ngulik bagaimana sistem di balik layar bekerja — mulai dari perancangan struktur tabel database, validasi input pengguna, sampai alur data yang aman antara backend dan aplikasi klien.',
+      'Saya suka ngulik bagaimana sistem di balik layar bekerja, mulai dari perancangan struktur tabel database, validasi input pengguna, sampai alur data yang aman antara backend dan aplikasi klien.',
     aboutP2:
       'Waktu magang sebagai Software Engineer di PT Telkom Indonesia, saya dipercaya membangun dua aplikasi internal operasional (TRACER & VANTAGE). Di sana saya banyak memegang rancangan database MySQL, pembuatan REST API Laravel 12, hingga integrasi tampilan web React dan model Python/Flask.',
     aboutP3:
